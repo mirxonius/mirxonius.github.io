@@ -1,5 +1,3 @@
-
-
 ---
 layout: post
 title: How to train your Autoencoder for Audio?
