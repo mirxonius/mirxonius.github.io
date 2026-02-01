@@ -234,10 +234,12 @@ Stack several of these layers in the correct order and you have your architectur
 
 A typical linear layer looks something like this
 
+
+<math>
 $$
 y = W x + b
 $$
-
+</math>
 where $W$ and $b$ are the weights and biases of the layer, if we focus only on the weights, a weight normalized linear layer tranformation would instead be parametrized in the following way
 
 $$
