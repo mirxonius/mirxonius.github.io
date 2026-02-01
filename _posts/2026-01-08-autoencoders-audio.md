@@ -21,7 +21,7 @@ If you want to see a nice implementation of the set-up described below feel free
 
 ## 1.1. 🚪 Introduction 🚪
 
-Auto-encoders are a type of neural network architecture composed of two, often symmetrical networks called the encoder $ \mathcal{E} $ and the decoder \\( \mathcal{D} \\) each with their own sets of parameters $ \theta $ and $ \psi $ respectively.
+Auto-encoders are a type of neural network architecture composed of two, often symmetrical networks called the encoder  \\(\mathcal{E}\\) and the decoder \\( \mathcal{D} \\) each with their own sets of parameters \\( \theta \\) and \\( \psi \\) respectively.
 
 In its simplest implementation the networks are trained to be the inverse to one another, where the encoder processes the data into latent features, next the decoder takes the latent features and tries to reconstruct the input data from the encoder latents. To enforce this a reconstruction loss is used, often in the form of a L2 distance
 
@@ -39,8 +39,8 @@ How do we fix this? Enter the variational auto-encoder (VAE)!
 
 Instead of only forcing the auto-encoder to produce good reconstructions, we add another term to the loss, the so-called *Kullback-Leiber divergence,* it is a measure of how different two distributions are. The idea is that if the model produces some *ugly* distribution in the latent space, why not force it to take a form of a more well behaved probability distribution, and what is more well behaved than a Gaussian?
 
-To that end we assume that the desired data distribution in the latent space is normal $p(z) = \mathcal{N}(0,1)$. Furthermore, we want to enforce that the distribution that the model produces $q_\phi(z) = \mathcal{N}(\mu
-_\phi(z),\sigma_\phi(z)^2)$ is also Gaussian. This yields a simplified version of the KL divergence loss given by the equation **(1)**
+To that end we assume that the desired data distribution in the latent space is normal \\( p(z) = \mathcal{N}(0,1)\\). Furthermore, we want to enforce that the distribution that the model produces \\( q_\phi(z) = \mathcal{N}(\mu
+_\phi(z),\sigma_\phi(z)^2) \\) is also Gaussian. This yields a simplified version of the KL divergence loss given by the equation **(1)**
 
 $$
 \mathcal{L}_{KL} = \sum_z q_\phi(z) \log\frac{q_\phi(z)}{p(z)} =\Big\{\mathrm{Gaussian}\Big\} = \frac{1}{2}\sum_{j=1}^{D}(1 +  \log \sigma_j^2 - \mu_j^2 - \sigma_j^2) \quad(1)
@@ -56,7 +56,7 @@ This loss will enforce several things
 
 The astute reader will notice that in order to calculate the KL loss we need access to the variance and mean of the latent data. To make things worse this needs to be calculated at every optimization step, which makes this at best computationally inefficient at worst impossible to back-propagate against. To solve this Kingma and Welling **[2]**, introduce the *reparametrization trick.*
 
-They say instead of the encoder \(\mathcal{E}\) producing latents directly, rather it produces the mean and variance of the data $\mathcal{E}_\theta(x) = (\mu_\theta(x),\sigma_\theta(x))$ and the latent vector is now given by 
+They say instead of the encoder \\( \mathcal{E}\\) producing latents directly, rather it produces the mean and variance of the data \\( \mathcal{E}_\theta(x) = (\mu_\theta(x),\sigma_\theta(x)) \\) and the latent vector is now given by 
 
 $$
 z = \mu_\theta(x) + \sigma_\theta(x) \cdot\epsilon \quad \epsilon\sim \mathcal{N}(0,1) \quad (2)
@@ -72,7 +72,7 @@ Nowadays, we require the best of both worlds - the neat and interpretable latent
 
 ### **1.4.1.** 🥊 **Adversarial Loss** 🥊
 
-The real data $x$ and the reconstructed data $\hat{x} = \mathcal{D}(\mathcal{E(x)})$ are passed to the discriminator model $\Phi$, which is trained to distinguish between real and reconstructed (fake) data. Furthermore, the auto-encoder is also trained to fool the discriminator. These two networks are optimized independently (each with its own optimizer) and trained in tandem. 
+The real data $x$ and the reconstructed data \\( \hat{x} = \mathcal{D}(\mathcal{E(x)}) \\) are passed to the discriminator model \\( \Phi \\), which is trained to distinguish between real and reconstructed (fake) data. Furthermore, the auto-encoder is also trained to fool the discriminator. These two networks are optimized independently (each with its own optimizer) and trained in tandem. 
 
 The discriminator loss is given by equation **(3)**
 
@@ -96,7 +96,7 @@ $$
 \Phi = \varphi_1 \circ\varphi_2...\circ\varphi_n
 $$
 
-In practice this is calculated by taking the intermediate outputs from each layer of the discriminator $\varphi_l$, for both original $x$ and reconstructed data $\hat{x}$ and calculating the L2 distance between the two.
+In practice this is calculated by taking the intermediate outputs from each layer of the discriminator \\(\varphi_l\\), for both original \\(x\\) and reconstructed data \\(\hat{x}\\) and calculating the L2 distance between the two.
 
 $$
 \mathcal{L}_{per} = \sum_{l\in\mathrm{layers}} ||\varphi_l(x) - \varphi_l(\hat{x})_l ||_2 \quad (5) 
@@ -116,7 +116,7 @@ The mel-spectrogram scale does allow for the use of computer vision techniques i
 
 Below you can see the *radially averaged power spectral density*, or RAPSD for a 2D Foruier transform of an image, spectrogram, and mel-spectrogram. The RAPSD graphs are in log-scale where the presence of a power law in image and mel-spectrograms are evident.
 
-![**FIG 1:** From Sander’s blog, on the left is an 2-D Fourier transform of an image, and the frequencies are taken across the red line, on the right the frequency power along the red line is displayed in log-log scale. Even here a power law is evident. ](/assets/img/RASPD.png)
+![**FIG 1:** From Sander’s blog, on the left is an 2-D Fourier transform of an image, and the frequencies are taken across the red line, on the right the frequency power along the red line is displayed in log-log scale. Even here a power law is evident. ](/assets/img/RAPSD.png)
 
 **FIG 1:** From Sander’s blog, on the left is an 2-D Fourier transform of an image, and the frequencies are taken across the red line, on the right the frequency power along the red line is displayed in log-log scale. Even here a power law is evident. 
 
@@ -233,19 +233,14 @@ Stack several of these layers in the correct order and you have your architectur
 ### 2.2.1. 🏋️‍♂️ Weight Normalized Layer 🏋️‍♂️
 
 A typical linear layer looks something like this
-
-
 $$
 y = W x + b
 $$
-
-where $W$ and $b$ are the weights and biases of the layer, if we focus only on the weights, a weight normalized linear layer tranformation would instead be parametrized in the following way
-
+where \\(W\\) and \\(b\\) are the weights and biases of the layer, if we focus only on the weights, a weight normalized linear layer tranformation would instead be parametrized in the following way
 $$
 y = \frac{g\cdot W}{||W||}x + b
 $$
-
-Now instead of learning the *direction* and the *norm* of the the linear transform we separate these two into separate parameters, $\frac{W}{||W||}$ accounts for the *direction* of the transform and the $g$ is the learnable norm of the transform, Salimas and Kingma [12] show how this approach speeds up the convergence of the training and that the learned norms are not mini-batch dependent as is the case with batch-normalization.
+Now instead of learning the *direction* and the *norm* of the the linear transform we separate these two into separate parameters, \\( \frac{W}{||W||}\\) accounts for the *direction* of the transform and the $g$ is the learnable norm of the transform, Salimas and Kingma [12] show how this approach speeds up the convergence of the training and that the learned norms are not mini-batch dependent as is the case with batch-normalization.
 
 This can be applied to any layer that can be represented as a linear transform, and as it so happens convolutions and transposed convolutions are just such layers.
 
@@ -253,7 +248,7 @@ This can be applied to any layer that can be represented as a linear transform, 
 
 Picking the non-linearity in deep learning models usually involves appeals to intuition, adherence to universal approximation theorems of questionable generalization, and empirical experience. Nevertheless, the list of nonlinear activation functions seems ever growing, and regardless of the cynicism displayed in the first sentence, there are good reasons for exploring novel activation functions most notably that different activation functions are not equally well suited for different types of data.
 
-In that tone Ziyin et al. [7] found that any network with $\tanh$ or $\mathrm{ReLU}$ activation cannot extrapolate periodic functions, and although I’ve haven’t found sources proving such properties for other nonlinearities that are $\tanh$-like or $\mathrm{ReLU}$-like: $\mathrm{SiLU}$, $\mathrm{GeLU}$, $\mathrm{Sigmoid}$ etc.
+In that tone Ziyin et al. [7] found that any network with \\( \tanh \\) or \\( \mathrm{ReLU}\\) activation cannot extrapolate periodic functions, and although I’ve haven’t found sources proving such properties for other nonlinearities that are \\(\tanh\\)-like or \\(\mathrm{ReLU}\\)-like: \\(\mathrm{SiLU}\\), \\(\mathrm{GeLU}\\), \\(\mathrm{Sigmoid}\\) etc.
 
 This issue with periodic functions extends to highly oscillating functions, and therefore Ziyin et al. [7] propose the *Snake* activation function
 
@@ -261,7 +256,7 @@ $$
 \mathrm{Snake}_a(x) = x + \frac{1}{a^2}\sin^2(ax)
 $$
 
-Here ‘$a$’ can either be set to a **constant** scalar and/or vector or a **learnable** scalar and/or vector, indeed Encodec [5], and Oobleck [4] models with Snake activations (with learnable vector parameters) prove superior to $\mathrm{ReLU}$-like and $\tanh$-like counterparts. 
+Here ‘\\(a\\)’ can either be set to a **constant** scalar and/or vector or a **learnable** scalar and/or vector, indeed Encodec [5], and Oobleck [4] models with Snake activations (with learnable vector parameters) prove superior to \\(\mathrm{ReLU}\\)-like and \\(\tanh\\)-like counterparts. 
 
 ### 2.2.3. 🍾 The Bottleneck Layer 🍾
 
@@ -295,7 +290,7 @@ Typical discriminators are the following:
 
 ### 2.3.1. 🐊 Multi-Resolution Spectrogram Discriminator 🐊
 
-Most prominent discriminators are Spectrogram discriminators, the idea is that we calculate a spectrogram with $N$ frequencies and treat it as an image. This is passed to a convolutional discriminator that utilizes rectangular kernels instead of square ones, and dilation. It is trivial to extend this to a multi-resolution discriminator by simply using an ensamble of these with a varying number of Fourier frequencies. A code example of a single-resolution discriminator is given below, note that for each layer its activations are stored in a feature-map list for later use.
+Most prominent discriminators are Spectrogram discriminators, the idea is that we calculate a spectrogram with \\(N\\) frequencies and treat it as an image. This is passed to a convolutional discriminator that utilizes rectangular kernels instead of square ones, and dilation. It is trivial to extend this to a multi-resolution discriminator by simply using an ensamble of these with a varying number of Fourier frequencies. A code example of a single-resolution discriminator is given below, note that for each layer its activations are stored in a feature-map list for later use.
 
 ```python
 class DiscriminatorSTFT(nn.Module):
@@ -431,11 +426,9 @@ class DiscriminatorSTFT(nn.Module):
 ### 2.3.2 🦭 Multi-Period Discriminator 🦭
 
 A period discriminator is a slightly less refined idea than the spectrogram discriminator, but one that works surprisingly well. The idea is to slice up the waveform into $p$ periods and stack it upon itself, and this is then passed to a convolutional discriminator similar in design to the spectrogram discriminator.
-
 ```python
 x = einops.rearange(waveform,"batch channel (T p) -> batch channel T p",p=period)
 ```
-
 Make an ensamble of these for multiple values of the period $p$, and you get a multi-period discriminators. 
 
 ### 2.3.3. 🦉 Band-wise Discriminator 🦉
