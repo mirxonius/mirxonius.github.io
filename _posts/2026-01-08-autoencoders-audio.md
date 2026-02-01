@@ -21,7 +21,7 @@ If you want to see a nice implementation of the set-up described below feel free
 
 ## 1.1. 🚪 Introduction 🚪
 
-Auto-encoders are a type of neural network architecture composed of two, often symmetrical networks called the encoder $\mathcal{E}$ and the decoder $\mathcal{D}$ each with their own sets of parameters $\theta$ and $\psi$ respectively.
+Auto-encoders are a type of neural network architecture composed of two, often symmetrical networks called the encoder $ \mathcal{E} $ and the decoder $ \mathcal{D} $ each with their own sets of parameters $ \theta $ and $ \psi $ respectively.
 
 In its simplest implementation the networks are trained to be the inverse to one another, where the encoder processes the data into latent features, next the decoder takes the latent features and tries to reconstruct the input data from the encoder latents. To enforce this a reconstruction loss is used, often in the form of a L2 distance
 
