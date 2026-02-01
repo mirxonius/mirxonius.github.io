@@ -6,6 +6,8 @@ cover-img: /assets/img/spectrogram.png
 thumbnail-img: /assets/img/spectrogram.png
 share-img: /assets/img/spectrogram.png
 tags: [autoencoders, music, audio, deep learning]
+mathjax: true
+
 author: Filip Mirković
 ---
 
