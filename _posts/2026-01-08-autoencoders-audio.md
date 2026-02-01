@@ -39,8 +39,7 @@ How do we fix this? Enter the variational auto-encoder (VAE)!
 
 Instead of only forcing the auto-encoder to produce good reconstructions, we add another term to the loss, the so-called *Kullback-Leiber divergence,* it is a measure of how different two distributions are. The idea is that if the model produces some *ugly* distribution in the latent space, why not force it to take a form of a more well behaved probability distribution, and what is more well behaved than a Gaussian?
 
-To that end we assume that the desired data distribution in the latent space is normal \\( p(z) = \mathcal{N}(0,1)\\). Furthermore, we want to enforce that the distribution that the model produces \\( q_\phi(z) = \mathcal{N}(\mu
-_\phi(z),\sigma_\phi(z)^2) \\) is also Gaussian. This yields a simplified version of the KL divergence loss given by the equation **(1)**
+To that end we assume that the desired data distribution in the latent space is normal \\( p(z) = \mathcal{N}(0,1) \\). Furthermore, we want to enforce that the distribution that the model produces \\( q_\phi(z) = \mathcal{N}(\mu_\phi(z),\sigma_\phi(z)^2) \\) is also Gaussian. This yields a simplified version of the KL divergence loss given by the equation **(1)**
 
 $$
 \mathcal{L}_{KL} = \sum_z q_\phi(z) \log\frac{q_\phi(z)}{p(z)} =\Big\{\mathrm{Gaussian}\Big\} = \frac{1}{2}\sum_{j=1}^{D}(1 +  \log \sigma_j^2 - \mu_j^2 - \sigma_j^2) \quad(1)
