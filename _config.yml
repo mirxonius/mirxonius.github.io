@@ -8,7 +8,9 @@
 ############################
 # --- Required options --- #
 ############################
-
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
 # Name of website
 title: Filip Mirković
 

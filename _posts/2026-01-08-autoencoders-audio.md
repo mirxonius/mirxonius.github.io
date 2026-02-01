@@ -10,8 +10,7 @@ mathjax: true
 author: Filip Mirković
 ---
 
-
-Representation learning is the cornerstone of any good machine learning system, and auto-encoders are often the unsung heroes, and are taken for granted by engineers and researchers alike. Here I will attempt to shine some light on audio auto-encoders, some of their desirable properties, most popular design choices and some novel inductive biases specific to audio auto-encoders.
+Representation learning is the cornerstone of any good machine learning system, and auto-encoders are often the unsung heroes of that art. Here I will attempt to shine some light on auto-encoders specifically their application to audio. We’ll go over some of their desirable properties, most popular design choices and several novel inductive biases specific to audio auto-encoders.
 
 The first section is devoted to auto-encoder objectives in general: reconstruction loss, KL loss, adversarial and perceptual loss, if you are well acquainted with these fell free to jump directly into section two that focuses on currently the most popular design choices and optimization tricks for modern audio auto-encoders.
 
@@ -22,7 +21,7 @@ If you want to see a nice implementation of the set-up described below feel free
 
 ## 1.1. 🚪 Introduction 🚪
 
-Auto-encoders are a type of neural network architecture composed of two, often symmetrical networks called the encoder \(\mathcal{E}\) and the decoder $\mathcal{D}$ each with their own sets of parameters $\theta$ and $\psi$ respectively.
+Auto-encoders are a type of neural network architecture composed of two, often symmetrical networks called the encoder $\mathcal{E}$ and the decoder $\mathcal{D}$ each with their own sets of parameters $\theta$ and $\psi$ respectively.
 
 In its simplest implementation the networks are trained to be the inverse to one another, where the encoder processes the data into latent features, next the decoder takes the latent features and tries to reconstruct the input data from the encoder latents. To enforce this a reconstruction loss is used, often in the form of a L2 distance
 
