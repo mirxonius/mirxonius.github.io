@@ -21,7 +21,7 @@ author: Filip Mirković
 ###############################################
 
 navbar-links:
-  About Me: "about_page" #"aboutme"
+  About Me: "aboutme"
   #Resources:
   #  - Beautiful Jekyll: "https://beautifuljekyll.com"
   #  - Learn markdown: "https://www.markdowntutorial.com/"
