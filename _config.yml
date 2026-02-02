@@ -142,18 +142,27 @@ navbar-var-length: false
 # Personalize the colours in your website. Colour values can be any valid CSS colour
 
 
-page-col: "#F8FBFF"              # Ultra-light blue-white
-text-col: "#0F2540"              # Deep navy blue
-link-col: "#0066CC"              # Vibrant blue
-hover-col: "#0052A3"             # Deeper vibrant blue
-navbar-col: "#1E3A5F"            # Dark slate blue (much darker/sleeker)
-navbar-text-col: "#E8F2FF"       # Light blue-white
-navbar-border-col: "#2C4F7C"     # Medium navy
-footer-col: "#1A2F4D"            # Deep blue-gray
-footer-text-col: "#B8D4F1"       # Soft light blue
-footer-link-col: "#6BA3D9"       # Medium blue
-footer-hover-col: "#8BB8E8"      
+# Main colors
+page-col: "#1a1a1a"              # Deep dark background
+text-col: "#e8e8e8"              # Light gray text (primary)
+link-col: "#4db8ff"              # Bright blue links
+hover-col: "#00d4aa"             # Teal hover state
+navbar-col: "#1a1a1a"            # Dark navbar (matches page)
+navbar-text-col: "#e8e8e8"       # Light gray navbar text
+navbar-border-col: "#3a3a3a"     # Subtle gray border
+footer-col: "#242424"            # Slightly lighter dark footer
+footer-text-col: "#b0b0b0"       # Medium gray footer text
+footer-link-col: "#4db8ff"       # Blue footer links
+footer-hover-col: "#00d4aa"      # Teal footer hover
 
+# Additional theme variables for reference
+--bg-secondary: "#242424"      # Secondary background
+# --bg-card: "#2a2a2a"           # Card/panel background
+# --text-secondary: "#b0b0b0"    # Secondary text (medium gray)
+# --text-tertiary: "#808080"     # Tertiary text (darker gray)
+# --accent-blue: "#4db8ff"       # Accent blue
+# --accent-teal: "#00d4aa"       # Accent teal
+# --border-subtle: "#3a3a3a"     # Subtle borders
 # Original
 # page-col: "#FFFFFF"
 # text-col: "#404040"
