@@ -13,6 +13,8 @@ author: Filip Mirković
 
 # 1. Introduction and Motivation
 
+There are several ways of understanding flow matching or diffusion models, and more often than not they are framed in terms of _denoising_ data. I however, have always found that 
+
 ![density_evolution.gif](assets/gif/flows/density_evolution.gif)
 
 In my opinion the core question behind generative modeling is: 
