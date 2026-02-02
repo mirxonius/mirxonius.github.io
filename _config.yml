@@ -21,12 +21,12 @@ author: Filip Mirković
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
+  About Me: "aubout_page" #"aboutme"
   #Resources:
   #  - Beautiful Jekyll: "https://beautifuljekyll.com"
   #  - Learn markdown: "https://www.markdowntutorial.com/"
 
-  #CV: "Curriculum Vitae"
+  #CV: "CurriculumVitae"
   #Blogs: "Blogs"
 
 ################
