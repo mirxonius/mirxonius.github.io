@@ -12,8 +12,7 @@ markdown: kramdown
 kramdown:
   math_engine: mathjax
 # Name of website
-title: Posts & Blogs
-
+title: Blog Posts
 # Your name to show in the footer
 author: Filip Mirković
 
