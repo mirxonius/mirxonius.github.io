@@ -2,9 +2,9 @@
 layout: post
 title: Notes on Flow Matching
 subtitle: Intuitions and derivations
-cover-img: /assets/img/autoencoders/spectrogram.png
-thumbnail-img: /assets/img/autoencoders/spectrogram.png
-share-img: /assets/img/autoencoders/spectrogram.png
+cover-img: /assets/img/flows/Distribution_Modeling.png
+thumbnail-img: /assets/img/flows/Distribution_Modeling.png
+share-img: /assets/img/flows/Distribution_Modeling.png
 tags: [flow matching, generative modeling, deep learning, optimal transport]
 mathjax: true
 author: Filip Mirković
@@ -25,7 +25,7 @@ While there are many approaches to solving this problem we will turn our focus t
 
 ## 1.1. Prehistoric era: Normalizing Flows
 
-![Distribution_Modling.png](attachment:ac7c9711-5fa5-4d47-952a-49ab61fc1a53:Distribution_Modling.png)
+![Distribution_Modling.png](assets/img/flows/Distribution_Modeling.png)
 
 Back in [2015](https://arxiv.org/abs/1505.05770) when the world was young and Chat-GPT had not yet said its first words, a solution to sampling from complicated high-dimensional distributions arose:
 *We can sample data from a multi-dimensional Gaussian and transform that Gaussian such that the resulting distribution matches some desired distribution.*
