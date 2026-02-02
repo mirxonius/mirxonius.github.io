@@ -19,34 +19,41 @@ If you want to see a nice implementation of the set-up described below feel free
 
 ## Table of Contents
 
-- [1. Auto-encoders in General](#auto-encoders-in-general)
-  - [1.1 Introduction](#intro)
-    - [Why reconstruction loss alone fails](#ae-overfitting)
-    - [Latent space collapse and clustering](#latent-clouds)
-  - [1.2 KL-Divergence Loss](#kl-loss)
-    - [Gaussian prior motivation](#gaussian-prior)
-    - [KL loss equation](#kl-equation)
-  - [1.3 Reparametrization Trick](#reparam-trick)
-    - [Why backpropagation fails without it](#why-reparam)
-  - [1.4 Adversarial & Perceptual Losses](#adv-perceptual)
-    - [Adversarial loss intuition](#adv-intuition)
-    - [Perceptual / feature matching loss](#perceptual-loss)
+1. Auto-encoders in General
 
-- [2. Modern Audio Auto-encoders](#modern-audio-autoencoders)
-  - [Waveform vs Spectrogram](#waveform-vs-spectrogram)
-    - [Why mel-spectrograms resemble images](#mel-power-law)
-    - [Why mel-spectrograms fail for music](#mel-limitations)
-  - [Waveform Architecture](#waveform-architecture)
-    - [Residual units and dilation](#residual-dilation)
-    - [Downsampling and compression ratio](#compression-ratio)
-  - [Discriminator Zoo](#discriminator-zoo)
-    - [Multi-resolution STFT discriminator](#mr-stft)
-    - [Multi-period discriminator](#mpd)
-    - [Band-wise discriminator idea](#bandwise)
+1.1. 🚪 Introduction
 
-- [References](#references)
+1.2. 🔔 KL-Divergence Loss
 
+1.3. 🎩 Reparametrization trick
 
+1.4. ⚖️ Adversarial and Perceptual loss
+
+1.4.1. 🥊 Adversarial Loss
+
+1.4.2. 🔎 Perceptual Loss
+
+2. Modern Audio Auto-encoders
+
+2.1. 🌊 Waveform or Spectrogram?
+
+2.2. 🗼 Architecture Well Suited For a Waveform
+
+2.2.1. 🏋️‍♂️ Weight Normalized Layer
+
+2.2.2. 🐍 The Snake Activation Function
+
+2.2.3. 🍾 The Bottleneck Layer
+
+2.3. 🦍 🐅 🦭 Discriminator Zoo
+
+2.3.1. 🐊 Multi-Resolution Spectrogram Discriminator
+
+2.3.2. 🦭 Multi-Period Discriminator
+
+2.3.3. 🦉 Band-wise Discriminator
+
+References
 
 
 # 1. Auto-encoders in General
