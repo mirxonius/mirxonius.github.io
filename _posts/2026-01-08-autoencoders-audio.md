@@ -10,18 +10,12 @@ mathjax: true
 author: Filip Mirković
 ---
 
-
+For some time now I wanted to find a way where my personal projects will be well documented, such that I can have an organized code base and notes on the topic I was exploring. Typically I find writing notes tedious, and for that reason I've decided to turn this into more of a free-style blog post. This one will hopefully be first of many, and as such I hope thier quality will be better and better.
 
 The first section is devoted to auto-encoder objectives in general: reconstruction loss, KL loss, adversarial and perceptual loss, if you are well acquainted with these fell free to jump directly into section two that focuses on currently the most popular design choices and optimization tricks for modern audio auto-encoders.
 
 If you want to see a nice implementation of the set-up described below feel free to checkout my repo:
 [audio_vae](https://github.com/mirxonius/audio_vae)
-
-Here's a useful method which should produce clickable references in any Markdown editor:
-
-At the end of each header, add an empty anchor with a chosen name — e.g. <a name="foo"></a>.
-At the start of the document, list the headers with a link to their anchors — e.g. [Foo](#foo).
-So this:
 
 ## Table of Contents
 
