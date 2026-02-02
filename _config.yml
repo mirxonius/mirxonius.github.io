@@ -54,7 +54,7 @@ round-avatar: true
 # You can change the order that they show up on the page by changing the order here.
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
-  email: "someone@example.com"
+  email: "filip.mirkovic2211@gmail.com"
   rss: true  # remove this line if you don't want to show an RSS link at the bottom
   #facebook: deanattali
   github: mirxonius
@@ -142,17 +142,31 @@ navbar-var-length: false
 
 # Personalize the colours in your website. Colour values can be any valid CSS colour
 
-page-col: "#FFFFFF"
-text-col: "#404040"
-link-col: "#008AFF"
-hover-col: "#0085A1"
-navbar-col: "#EAEAEA"
-navbar-text-col: "#404040"
-navbar-border-col: "#DDDDDD"
-footer-col: "#EAEAEA"
-footer-text-col: "#777777"
-footer-link-col: "#404040"
-footer-hover-col: "#0085A1"
+
+page-col: "#F8FBFF"              # Ultra-light blue-white
+text-col: "#0F2540"              # Deep navy blue
+link-col: "#0066CC"              # Vibrant blue
+hover-col: "#0052A3"             # Deeper vibrant blue
+navbar-col: "#1E3A5F"            # Dark slate blue (much darker/sleeker)
+navbar-text-col: "#E8F2FF"       # Light blue-white
+navbar-border-col: "#2C4F7C"     # Medium navy
+footer-col: "#1A2F4D"            # Deep blue-gray
+footer-text-col: "#B8D4F1"       # Soft light blue
+footer-link-col: "#6BA3D9"       # Medium blue
+footer-hover-col: "#8BB8E8"      
+
+# Original
+# page-col: "#FFFFFF"
+# text-col: "#404040"
+# link-col: "#008AFF"
+# hover-col: "#0085A1"
+# navbar-col: "#EAEAEA"
+# navbar-text-col: "#404040"
+# navbar-border-col: "#DDDDDD"
+# footer-col: "#EAEAEA"
+# footer-text-col: "#777777"
+# footer-link-col: "#404040"
+# footer-hover-col: "#0085A1"
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
