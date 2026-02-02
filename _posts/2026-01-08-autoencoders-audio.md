@@ -95,7 +95,12 @@ This loss will enforce several things
 
 The astute reader will notice that in order to calculate the KL loss we need access to the variance and mean of the latent data. To make things worse this needs to be calculated at every optimization step, which makes this at best computationally inefficient at worst impossible to back-propagate against. To solve this Kingma and Welling **[2]**, introduce the *reparametrization trick.*
 
-They say instead of the encoder \\( \mathcal{E}\\) producing latents directly, rather it produces the mean and variance of the data \\(\mathcal{E}_\theta(x) = (\mu_\theta(x),\sigma_\theta(x) )\\) and the latent vector is now given by 
+They say instead of the encoder \\( \mathcal{E}\\) producing latents directly, rather it produces the mean and variance of the data 
+
+$$ 
+\mathcal{E}_\theta(x) = (\mu_\theta(x),\sigma_\theta(x) ) 
+$$
+The actual latent vector is now retrieved by sampling from the following distribution
 
 $$
 z = \mu_\theta(x) + \sigma_\theta(x) \cdot\epsilon \quad \epsilon\sim \mathcal{N}(0,1) \quad (2)
