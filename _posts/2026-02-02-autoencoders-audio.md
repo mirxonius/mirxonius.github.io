@@ -26,7 +26,7 @@ Auto-encoders are a type of neural network architecture composed of two, often s
 
 In its simplest implementation the networks are trained to be the inverse to one another, where the encoder processes the data into latent features, next the decoder takes the latent features and tries to reconstruct the input data from the encoder latents. To enforce this a reconstruction loss is used, often in the form of a L2 distance
 
-$$\mathcal{L}_{rec}(\psi,\theta) = ||x - \mathcal{D_\psi}(\mathcal{E_\theta(x)}) ||_2$$
+$$\mathcal{L}_{rec}(\psi,\theta) = ||x - \mathcal{D_\psi}(\mathcal{E_\theta(x)}) ||_2 $$
 
 We might be inclined to believe that this should be enough for the encoder to produce a meaningful set of features representing the most important properties of data, all the while compressing it a sufficient amount. The latter is achieved simply by architecture design choices such as down sampling layers, but is almost certainly guaranteed to fail.
 
@@ -61,6 +61,7 @@ They say instead of the encoder \\( \mathcal{E}\\) producing latents directly, r
 $$ 
 \mathcal{E}_\theta(x) = (\mu_\theta(x),\sigma_\theta(x) ) 
 $$
+
 The actual latent vector is now retrieved by sampling from the following distribution
 
 $$
