@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Filip Mirković</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #242424;
+            --bg-card: #2a2a2a;
+            --text-primary: #e8e8e8;
+            --text-secondary: #b0b0b0;
+            --text-tertiary: #808080;
+            --accent-blue: #4db8ff;
+            --accent-teal: #00d4aa;
+            --border-subtle: #3a3a3a;
+            --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle at 70% 30%, 
+                rgba(0, 212, 170, 0.08) 0%, 
+                transparent 50%
+            ),
+            radial-gradient(
+                circle at 30% 70%, 
+                rgba(77, 184, 255, 0.06) 0%, 
+                transparent 50%
+            );
+            animation: driftAlt 35s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes driftAlt {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(5%, -5%) rotate(-3deg); }
+            66% { transform: translate(-5%, 5%) rotate(3deg); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-subtle);
+            margin-bottom: 60px;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a.active {
+            color: var(--accent-teal);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-teal);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-teal);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-bottom: 70px;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            font-weight: 300;
+            max-width: 600px;
+        }
+
+        .download-cv {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 25px;
+            padding: 14px 28px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 10px;
+            border: 1px solid var(--border-subtle);
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .download-cv:hover {
+            background: var(--accent-blue);
+            color: #1a1a1a;
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(77, 184, 255, 0.3);
+        }
+
+        /* Info Card */
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 60px;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .info-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-blue);
+        }
+
+        .info-value {
+            font-size: 17px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Section Header */
+        .section {
+            margin-bottom: 70px;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+
+        .section-header {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: var(--text-primary);
+            letter-spacing: -1px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: linear-gradient(180deg, 
+                var(--accent-blue) 0%, 
+                var(--accent-teal) 100%
+            );
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding-left: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -46px;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            background: var(--bg-primary);
+            border: 3px solid var(--accent-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--bg-primary);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            width: 18px;
+            height: 18px;
+            left: -48px;
+            top: 6px;
+            border-color: var(--accent-teal);
+            box-shadow: 0 0 0 6px var(--bg-primary), 0 0 20px rgba(0, 212, 170, 0.4);
+        }
+
+        .timeline-period {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(77, 184, 255, 0.15);
+            color: var(--accent-blue);
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .timeline-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .timeline-subtitle {
+            font-size: 17px;
+            color: var(--accent-teal);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .timeline-description {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .timeline-highlights {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .timeline-highlights li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .timeline-highlights li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--accent-teal);
+            font-size: 12px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 30px rgba(77, 184, 255, 0.15);
+        }
+
+        .skill-category-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(77, 184, 255, 0.15);
+            border-radius: 6px;
+            color: var(--accent-blue);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            padding: 8px 14px;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-blue);
+            color: #1a1a1a;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 25px;
+            }
+
+            .page-title {
+                font-size: 42px;
+            }
+
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .timeline-item {
+                padding-left: 20px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="#" class="logo">Filip Mirković</a>
+            <div class="nav-links">
+                <a href="about_page.html">About</a>
+                <a href="#" class="active">Experience</a>
+                <a href="#">Research</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+
+        <div class="page-header">
+            <h1 class="page-title">Experience</h1>
+            <p class="page-subtitle">
+                My professional journey in machine learning, audio processing, and deep learning research.
+            </p>
+            <a href="#" class="download-cv">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Download Full CV
+            </a>
+        </div>
+
+        <div class="info-card">
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Full Name</div>
+                    <div class="info-value">Filip Mirković</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Location</div>
+                    <div class="info-value">Zagreb, Croatia</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Languages</div>
+                    <div class="info-value">Croatian, English, German</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Email</div>
+                    <div class="info-value">filip.mirkovic@example.com</div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <h2 class="section-header">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-period">2020 - NOW</span>
+                    <h3 class="timeline-title">PhD in Machine Learning & Audio Processing</h3>
+                    <div class="timeline-subtitle">University of Zagreb, Faculty of Electrical Engineering and Computing</div>
+                    <p class="timeline-description">
+                        Doctoral research focusing on advanced deep learning architectures for audio signal processing, 
+                        music source separation, and generative models for high-resolution audio synthesis.
+                    </p>
+                    <ul class="timeline-highlights">
+                        <li>Expected graduation: 2026</li>
+                        <li>Secured €1.3M in EU research funding</li>
+                        <li>Published 15+ papers in top-tier conferences</li>
+                        <li>Selected for ML2 School 2025 by Google DeepMind</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-period">2015 - 2020</span>
+                    <h3 class="timeline-title">MSc in Physics</h3>
+                    <div class="timeline-subtitle">University of Zagreb, Faculty of Science</div>
+                    <p class="timeline-description">
+                        Master's degree with specialization in computational physics and signal processing. 
+                        Thesis on acoustic modeling and wave propagation.
+                    </p>
+                    <ul class="timeline-highlights">
+                        <li>GPA: 4.8/5.0</li>
+                        <li>Dean's List in all semesters</li>
+                        <li>Teaching Assistant for Advanced Physics courses</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-period">2011 - 2015</span>
+                    <h3 class="timeline-title">BSc in Physics</h3>
+                    <div class="timeline-subtitle">University of Zagreb, Faculty of Science</div>
+                    <p class="timeline-description">
+                        Bachelor's degree with focus on theoretical physics and mathematics. 
+                        Early research experience in acoustics and signal processing.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-header">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-period">2022 - PRESENT</span>
+                    <h3 class="timeline-title">Machine Learning Engineer</h3>
+                    <div class="timeline-subtitle">Atomic Intelligence, Zagreb</div>
+                    <p class="timeline-description">
+                        Lead ML engineer developing cutting-edge audio processing systems and deep learning models 
+                        for music source separation and generative audio synthesis.
+                    </p>
+                    <ul class="timeline-highlights">
+                        <li>Developed audio VAE architectures achieving state-of-the-art results on MUSDB18 dataset</li>
+                        <li>Implemented cascading flow matching for high-resolution audio generation</li>
+                        <li>Built MLflow-integrated training pipelines with PyTorch Lightning</li>
+                        <li>Designed band-split discriminators following EnCodec paper specifications</li>
+                        <li>Mentored junior engineers and led code review processes</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-period">2020 - 2022</span>
+                    <h3 class="timeline-title">Research Assistant</h3>
+                    <div class="timeline-subtitle">University of Zagreb, Audio Research Lab</div>
+                    <p class="timeline-description">
+                        Conducted research on audio signal processing and machine learning applications 
+                        in music information retrieval.
+                    </p>
+                    <ul class="timeline-highlights">
+                        <li>Published research on MIDI generation using Mamba-based architectures</li>
+                        <li>Developed STFT-based loss functions with phase information</li>
+                        <li>Collaborated on EU-funded research projects</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-period">2019 - 2020</span>
+                    <h3 class="timeline-title">ML Engineering Intern</h3>
+                    <div class="timeline-subtitle">Tech Startup, Remote</div>
+                    <p class="timeline-description">
+                        Developed machine learning models for audio classification and worked on 
+                        production deployment pipelines.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-header">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-category-title">
+                        <span class="skill-icon">🧠</span>
+                        Deep Learning
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">PyTorch Lightning</span>
+                        <span class="skill-tag">Transformers</span>
+                        <span class="skill-tag">VAEs</span>
+                        <span class="skill-tag">Flow Matching</span>
+                        <span class="skill-tag">Mamba</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">
+                        <span class="skill-icon">🎵</span>
+                        Audio Processing
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">STFT</span>
+                        <span class="skill-tag">Mel Spectrograms</span>
+                        <span class="skill-tag">Source Separation</span>
+                        <span class="skill-tag">Audio Synthesis</span>
+                        <span class="skill-tag">MIDI Processing</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">
+                        <span class="skill-icon">💻</span>
+                        Programming
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">CUDA</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Pandas</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">
+                        <span class="skill-icon">🔧</span>
+                        ML Tools
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MLflow</span>
+                        <span class="skill-tag">Hydra</span>
+                        <span class="skill-tag">WandB</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="padding-bottom: 80px;">
+            <h2 class="section-header">Awards & Recognition</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-period">2025</span>
+                    <h3 class="timeline-title">ML2 School Participant</h3>
+                    <div class="timeline-subtitle">Google DeepMind, London</div>
+                    <p class="timeline-description">
+                        Selected as participant and poster presenter at ML2 School 2025, an intensive machine learning 
+                        program hosted by Google DeepMind.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-period">2023</span>
+                    <h3 class="timeline-title">EU Research Grant</h3>
+                    <div class="timeline-subtitle">European Commission</div>
+                    <p class="timeline-description">
+                        Successfully secured €1.3M in EU research funding through competitive grant application process.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-period">2020</span>
+                    <h3 class="timeline-title">Best Paper Award</h3>
+                    <div class="timeline-subtitle">Audio Engineering Conference</div>
+                    <p class="timeline-description">
+                        Awarded Best Paper for research on novel audio source separation techniques using deep learning.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
