@@ -23,12 +23,12 @@ author: Filip Mirković
 
 navbar-links:
   About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
+  #Resources:
+  #  - Beautiful Jekyll: "https://beautifuljekyll.com"
+  #  - Learn markdown: "https://www.markdowntutorial.com/"
 
-  CV: "Curriculum Vitae"
-  Blogs: "Blogs"
+  #CV: "Curriculum Vitae"
+  #Blogs: "Blogs"
 
 ################
 # --- Logo --- #

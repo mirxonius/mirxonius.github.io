@@ -2,24 +2,63 @@
 layout: post
 title: Auto-encoders for Audio
 subtitle: Notes on autoencoders and their applications to audio
-cover-img: /assets/img/spectrogram.png
-thumbnail-img: /assets/img/spectrogram.png
-share-img: /assets/img/spectrogram.png
+cover-img: /assets/img/autoencoders/spectrogram.png
+thumbnail-img: /assets/img/autoencoders/spectrogram.png
+share-img: /assets/img/autoencoders/spectrogram.png
 tags: [autoencoders, music, audio, deep learning]
 mathjax: true
 author: Filip Mirković
 ---
 
-Representation learning is the cornerstone of any good machine learning system, and auto-encoders are often the unsung heroes of that art. Here I will attempt to shine some light on auto-encoders specifically their application to audio. We’ll go over some of their desirable properties, most popular design choices and several novel inductive biases specific to audio auto-encoders.
+
 
 The first section is devoted to auto-encoder objectives in general: reconstruction loss, KL loss, adversarial and perceptual loss, if you are well acquainted with these fell free to jump directly into section two that focuses on currently the most popular design choices and optimization tricks for modern audio auto-encoders.
 
 If you want to see a nice implementation of the set-up described below feel free to checkout my repo:
 [audio_vae](https://github.com/mirxonius/audio_vae)
 
+Here's a useful method which should produce clickable references in any Markdown editor:
+
+At the end of each header, add an empty anchor with a chosen name — e.g. <a name="foo"></a>.
+At the start of the document, list the headers with a link to their anchors — e.g. [Foo](#foo).
+So this:
+
+## Table of Contents
+
+- [1. Auto-encoders in General](#auto-encoders-in-general)
+  - [1.1 Introduction](#intro)
+    - [Why reconstruction loss alone fails](#ae-overfitting)
+    - [Latent space collapse and clustering](#latent-clouds)
+  - [1.2 KL-Divergence Loss](#kl-loss)
+    - [Gaussian prior motivation](#gaussian-prior)
+    - [KL loss equation](#kl-equation)
+  - [1.3 Reparametrization Trick](#reparam-trick)
+    - [Why backpropagation fails without it](#why-reparam)
+  - [1.4 Adversarial & Perceptual Losses](#adv-perceptual)
+    - [Adversarial loss intuition](#adv-intuition)
+    - [Perceptual / feature matching loss](#perceptual-loss)
+
+- [2. Modern Audio Auto-encoders](#modern-audio-autoencoders)
+  - [Waveform vs Spectrogram](#waveform-vs-spectrogram)
+    - [Why mel-spectrograms resemble images](#mel-power-law)
+    - [Why mel-spectrograms fail for music](#mel-limitations)
+  - [Waveform Architecture](#waveform-architecture)
+    - [Residual units and dilation](#residual-dilation)
+    - [Downsampling and compression ratio](#compression-ratio)
+  - [Discriminator Zoo](#discriminator-zoo)
+    - [Multi-resolution STFT discriminator](#mr-stft)
+    - [Multi-period discriminator](#mpd)
+    - [Band-wise discriminator idea](#bandwise)
+
+- [References](#references)
+
+
+
+
 # 1. Auto-encoders in General
 
-## 1.1. 🚪 Introduction 🚪
+## 1.1. 🚪 Introduction 🚪 
+
 
 Auto-encoders are a type of neural network architecture composed of two, often symmetrical networks called the encoder  \\(\mathcal{E}\\) and the decoder \\( \mathcal{D} \\) each with their own sets of parameters \\( \theta \\) and \\( \psi \\) respectively.
 
@@ -63,7 +102,7 @@ $$
 
 It turns out this simple trick makes the calculation of the KL-loss and its gradients tractable.
 
-## 1.4. ⚖️ It’s still not enough! Adversarial and Perceptual loss
+## 1.4. ⚖️ It’s still not enough! Adversarial and Perceptual loss ⚖️
 
 During, the olden days of generative modeling the two main approaches were auto-encoders and the generative adversarial networks (GANs). Auto-encoders provided meaningful latents, some degree of interpretability, and an ease of training, but GANs had crisper data reconstructions. Most notably in the case of image generation, the images produced with VAEs were blurry, and the ones produced by GANs were crisp.
 
@@ -115,7 +154,7 @@ The mel-spectrogram scale does allow for the use of computer vision techniques i
 
 Below you can see the *radially averaged power spectral density*, or RAPSD for a 2D Foruier transform of an image, spectrogram, and mel-spectrogram. The RAPSD graphs are in log-scale where the presence of a power law in image and mel-spectrograms are evident.
 
-![**FIG 1:** From Sander’s blog, on the left is an 2-D Fourier transform of an image, and the frequencies are taken across the red line, on the right the frequency power along the red line is displayed in log-log scale. Even here a power law is evident. ](/assets/img/RAPSD.png)
+![**FIG 1:** From Sander’s blog, on the left is an 2-D Fourier transform of an image, and the frequencies are taken across the red line, on the right the frequency power along the red line is displayed in log-log scale. Even here a power law is evident. ](/assets/img/autoencoders/RAPSD.png)
 
 **FIG 1:** From Sander’s blog, on the left is an 2-D Fourier transform of an image, and the frequencies are taken across the red line, on the right the frequency power along the red line is displayed in log-log scale. Even here a power law is evident. 
 
@@ -133,7 +172,7 @@ Why not work with mel-spectrograms then? The reason is that they perform a great
 
 It turns out that the wavefrom representation does not suffer from varying scale problem we’ve encountered with spectrograms, and unlike mel-spectrograms they do not compress the data. With all of this in mind it turns out that the humble 1-D convolution is enough to process a waveform. ver tricks. Currently the most best models with regards to reconstruction quality, audio compression and downstream utility I have found are the Encodec [5], Descript Audio Codec (DAC) [6] and Oobleck (Stability-AI) [5]. While all three models build on each other and, have certain differences and relative improvements, at their core is a very similar design almost entirely comprised of cleverly implemented of 1-D convolutional layers.
 
-![**Fig 4: EnCodec Model Architecture** [5]**:** The model processes raw waveforms using a series of 1-D convolutional layers and occasionally a LSTM layer. In this instance the bottleneck layer introduces vector quantization, which the authors of [4,6] often replace with their own latent space reguralization, for instance the stable-audio-open VAE uses the principles of VAE and KL divergence mentioned in sections **1.2** and **1.3.** Multiple losses are calculated ,most notably waveform and spectrogram reconstruction losses, adversarial losses and feature matching losses.](/assets/img/encodec.png)
+![**Fig 4: EnCodec Model Architecture** [5]**:** The model processes raw waveforms using a series of 1-D convolutional layers and occasionally a LSTM layer. In this instance the bottleneck layer introduces vector quantization, which the authors of [4,6] often replace with their own latent space reguralization, for instance the stable-audio-open VAE uses the principles of VAE and KL divergence mentioned in sections **1.2** and **1.3.** Multiple losses are calculated ,most notably waveform and spectrogram reconstruction losses, adversarial losses and feature matching losses.](/assets/img/autoencoders/encodec.png)
 
 **Fig 4: EnCodec Model Architecture** [5]**:** The model processes raw waveforms using a series of 1-D convolutional layers and occasionally a LSTM layer. In this instance the bottleneck layer introduces vector quantization, which the authors of [4,6] often replace with their own latent space reguralization, for instance the stable-audio-open VAE uses the principles of VAE and KL divergence mentioned in sections **1.2** and **1.3.** Multiple losses are calculated ,most notably waveform and spectrogram reconstruction losses, adversarial losses and feature matching losses.
 
@@ -188,12 +227,8 @@ class EncoderBlock(nn.Module):
         return self.downsample(self.res_units(x))
 ```
 
-<aside>
-💡
-
 **Example:** With 4 `EncoderBlocks` and stride sizes of **[2, 4, 4, 8]** we can achieve a **x256** compression in sample length!
 
-</aside>
 
 Lastly, the decoder consists of practically the same components in the reversed order, with the exception that instead of downsampling we now upsample with a transposed convolution layer.
 
@@ -279,13 +314,8 @@ Typical discriminators are the following:
 1. Spectrogram Discriminator (Single Resolution and Multi Resolution)
 2. Multi Scale Discriminators
 3. Period and Multi-Period Discriminators
-
-<aside>
 💡
-
  It is worth noting that these discriminators need not be large, especially in the case of multi-resolution and multi-period discriminators, since their goal is to focus on a subset of features present in the training data.
-
-</aside>
 
 ### 2.3.1. 🐊 Multi-Resolution Spectrogram Discriminator 🐊
 
