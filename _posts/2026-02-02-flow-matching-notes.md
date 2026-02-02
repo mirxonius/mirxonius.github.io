@@ -1,3 +1,15 @@
+---
+layout: post
+title: Notes on Flow Matching
+subtitle: Intuitions and derivations
+cover-img: /assets/img/autoencoders/spectrogram.png
+thumbnail-img: /assets/img/autoencoders/spectrogram.png
+share-img: /assets/img/autoencoders/spectrogram.png
+tags: [flow matching, generative modeling, deep learning, optimal transport]
+mathjax: true
+author: Filip Mirković
+---
+
 
 # 1. Introduction and Motivation
 
