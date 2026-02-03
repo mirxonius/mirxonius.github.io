@@ -126,11 +126,11 @@ Below you can see the *radially averaged power spectral density*, or RAPSD for 
 
 **FIG 1:** From Sander’s blog, on the left is an 2-D Fourier transform of an image, and the frequencies are taken across the red line, on the right the frequency power along the red line is displayed in log-log scale. Even here a power law is evident. 
 
-![**FIG 2:** RAPSD for ordinary spectrogram, power law is not present.](assets/img/autoencoders/mean_log_spec.png)
+![**FIG 2:** RAPSD for ordinary spectrogram, power law is not present.](/assets/img/autoencoders/mean_log_spec.png)
 
 **FIG 2:** RAPSD for ordinary spectrogram, power law is not present.
 
-![**FIG 3:** RAPSD for mel-spectrogram, the power law again becomes apparent. ](assets/img/autoencoders/mel_spec_rapsd.png)
+![**FIG 3:** RAPSD for mel-spectrogram, the power law again becomes apparent. ](/assets/img/autoencoders/mel_spec_rapsd.png)
 
 **FIG 3:** RAPSD for mel-spectrogram, the power law again becomes apparent. 
 
