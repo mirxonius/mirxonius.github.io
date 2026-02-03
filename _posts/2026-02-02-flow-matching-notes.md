@@ -214,11 +214,10 @@ The result \\((\ast)\\) finally relates the real flow velocity to the conditiona
 The original loss function
 
 $$
-\mathcal{L}_{FM}(\theta) = \mathbb{E}_
-{x\sim p_x\; t\sim\mathcal{U}}\Big[||u_t(x)  -  u^\theta_t(x)||^2\Big]
+\mathcal{L}_{FM}(\theta) = \mathbb{E}_{x\sim p_x\; t\sim\mathcal{U}}\Big[||u_t(x)  -  u^\theta_t(x)||^2\Big]
 $$
 
- and the conditional loss function
+and the conditional loss function
 
 $$
 \mathcal{L}(\theta)_{CFM} = \mathbb{E}_{z\sim p_{data}\; x\sim p_t(x|z)\;t\sim\mathcal{U}}\big[ ||u_t(x|z) - u^{\theta}_t(x)||^2 \big] 
