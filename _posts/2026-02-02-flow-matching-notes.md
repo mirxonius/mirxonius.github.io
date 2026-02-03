@@ -10,14 +10,14 @@ mathjax: true
 author: Filip Mirković
 ---
 
-
-# 1. Introduction and Motivation
-
 There are several ways of understanding flow matching or diffusion models, and more often than not they are framed in terms of _denoising_ data. I however, have always found that explanation unclear and noisy if you will.
 
-In my opinion the core question behind generative modeling is: 
+In my opinion the core question behind generative modeling is _How do we sample from an arbitrary probability distribution?_ 
+In this blog we will attempt to answer this question through _flow matching_.
 
-*How do we sample from an arbitrary probability distribution?* 
+As usual we offer a complementary repository: github.com/mirxonius/flows
+
+# 1. Introduction and Motivation
 
 We know how to sample from uniform and normal distributions fairly easily and by making use of the [probability integral transform theorem](https://en.wikipedia.org/wiki/Probability_integral_transform) we can sample from *any* one-dimensional probability function. In higher dimensions, where most of the interesting data lays calculating inverse probability integral transforms becomes intractable.
 
@@ -59,6 +59,7 @@ It turns out this gives as plenty of nice properties:
 $$
 \mathcal{l}_{\theta,i} =  \log p_{x_i} = \log p_z(z_i) + \sum_k \log |\frac{\partial f_k^{-1}}{\partial f_{k-1}}|(z_i)
 $$
+
 Where \\(f_0 = z\\).
     
 2. We can use the network to sample \\(x\\) by first sampling \\(z\\) and passing it through the network.
@@ -269,9 +270,14 @@ The result given by *Theorem 1* tells us something remarkable, that we can use t
 To recap the full procedure for training a flow matching model is:
 
 1. We define and initialize our model \\(u_t^\theta\\)
+
+
 2. We prepare our dataset \\(\mathcal{D}\\)
+
 3. We sample \\(z\sim \mathcal{D}, x_0 \sim \mathcal{N}\\), and \\(t \sim \mathcal{U}\\)
+
 4. We calculate the \\(x_t\\) via interpolation \\(x_t = tz + (1-t)x_0\\)
+
 5. We pass both \\(x_t\\) and \\(t\\) to the **model** to get the conditional flow velocity 
 
 6. We calculate the target conditional flow velocity as \\(u_t(x|z) = z - x_0\\)
@@ -281,6 +287,7 @@ To recap the full procedure for training a flow matching model is:
 Once the model is trained we can sample new data in the following way:
 
 1. Sample \\(x_0 \sim \mathcal{N}\\), initialize the temporal grid \\(T \subseteq [0,1]\\)
+
 2. Perform numerical integration of \\(u_t^\theta(x)\\) along \\(T\\), with \\(x_0\\) as initial conditions.
 
 ![trajectory.gif](/assets/gif/flows/trajectory.gif)
@@ -326,13 +333,18 @@ To avoid this, [Mini-Batch Optimal Transport Sampling](https://arxiv.org/abs/230
 
 ### Resources
 
-- **Repository:** https://github.com/mirxonius/flows
 - **MIT Lectures Page:** https://diffusion.csail.mit.edu/
 - **Literature**
     1. Introduction to Flow Matching MIT: https://arxiv.org/abs/2506.02070
+    
     2. Introduction to Flow Matching Cambridge: https://mlg.eng.cam.ac.uk/blog/2024/01/20/flow-matching.html
+    
     3. Mini-Batch Optimal Transport Flow Matching: https://arxiv.org/abs/2302.00482
+    
     4. Flow Matching Original: https://arxiv.org/abs/2210.02747
+    
     5. Stochastic Interpolants: https://arxiv.org/abs/2303.08797
+    
     6. Flow Matching Guide And Code (Meta.ai): https://arxiv.org/pdf/2412.06264
+
 tags: [flow matching, generative modeling, deep learning, optimal transport]
