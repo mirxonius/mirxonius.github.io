@@ -102,7 +102,7 @@ $$
  \partial_t p_t(x) + \nabla\cdot \big(p_t(x)u_t(x)\big )=0  
 $$
 
-What we want the neural network to learn is not \\(\psi_t\\) itself, rather we want it to learn the velocity field \\( u^\theta _t(x) \\). _That is we minimize_
+What we want the neural network to learn is not \\(\psi_t\\) itself, rather we want it to learn the velocity field \\( u^\theta _t (x) \\). _That is we minimize_
 
 $$
 \mathcal{L}_{FM}(\theta) = \mathbb{E}_{x\sim p_t(x)\; t\sim\mathcal{U}}\Big[\vert \vert u_t(x)  -  u^\theta_t(x)\vert \vert^2\Big]
@@ -170,7 +170,7 @@ Recall the continuity equation
 Now that we've established the slight difference between the actual flow velocity \\(u_t(x)\\) and the conditional flow velocity \\(u_t(x\vert z)\\) our loss function changes to 
 
 $$
-\mathcal{L}(\theta)_{CFM} = \mathbb{E}_{z\sim p_{data}\; x\sim p_t(x\vert z)\;t\sim\mathcal{U}}\big[ \vert \vert u_t(x\vert z) - u^{\theta}_t(x)\vert \vert^2 \big]\\= \mathbb{E}_{z\sim p_{data}\; x\sim p_t(x\vert z)\;t\sim\mathcal{U}}\big[\vert \vertz-x -u_t^\theta(x)\vert \vert^2\Big]
+\mathcal{L}(\theta)_{CFM} = \mathbb{E}_{z\sim p_{data}\; x\sim p_t(x\vert z)\;t\sim\mathcal{U}}\big[ \vert \vert u_t(x\vert z) - u^{\theta}_t(x)\vert \vert^2 \big]\\= \mathbb{E}_{z\sim p_{data}\; x\sim p_t(x\vert z)\;t\sim\mathcal{U}}\big[\vert \vert z-x -u_t^\theta(x)\vert \vert^2\Big]
 $$
 
 But wait! We are no longer fitting the model to the real \\(u_t(x)\\), rather to the conditional \\(u_t(x\vert z)\\), will this be good enough to fit to the model data?
