@@ -193,8 +193,8 @@ $$
 \partial_t p_t(x|z) = - \nabla\cdot \big(p_t(x|z)u_t(x|z)\big ) \quad (2)
 $$
 
-This is where the conditional flow velocity \\(u_t(x|z)\\) naturally occurs.
-As you might know, we can always marginalize a distribution according to w.r.t random variable \\(p(x) = \int p(x|z)p(z)dz\\)
+This is where the conditional flow velocity \\( u_t(x|z) \\) naturally occurs.
+As you might know, we can always marginalize a distribution according to w.r.t. random variable \\( p(x) = \int p(x | z)p(z)dz \\)
 
 So lets perform the marginalization of equation (1) 
 
@@ -224,7 +224,7 @@ $$
 \mathcal{L}(\theta)_{CFM} = \mathbb{E}_{z\sim p_{data}\; x\sim p_t(x|z)\;t\sim\mathcal{U}}\big[ ||u_t(x|z) - u^{\theta}_t(x)||^2 \big] 
 $$
 
-have the same gradients, and therefore the same local minima w.r.t. the  model parameters $\theta$.
+have the same gradients, and therefore the same local minima w.r.t. the  model parameters \\(\theta\\).
 
 **Proof:**
 The Flow Matching loss decomposes into three terms, where only two of them depend on  \\(\theta\\), and the remaining is a constant w.r.t. \\(\theta\\)
