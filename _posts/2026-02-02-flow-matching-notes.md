@@ -13,7 +13,7 @@ author: Filip Mirković
 
 There are several ways of understanding flow matching or diffusion models, and more often than not they are framed in terms of _denoising_ data. I however, have always found that explanation unclear and noisy if you will.
 
-In my opinion the core question behind generative modeling is _How do we sample from an arbitrary probability distribution?_ 
+In my opinion the core question behind generative modeling is _How can we feasibly sample from arbitrary probability distributions?_ 
 In this blog we will attempt to answer this question through _flow matching_.
 
 As usual we offer a complementary repository:  [flows](github.com/mirxonius/flows)
