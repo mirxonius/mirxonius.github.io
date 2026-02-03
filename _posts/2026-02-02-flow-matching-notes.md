@@ -2,9 +2,9 @@
 layout: post
 title: Notes on Flow Matching
 subtitle: Intuitions and derivations
-cover-img: /assets/img/flows/Distribution_Modeling.png
-thumbnail-img: /assets/img/flows/Distribution_Modeling.png
-share-img: /assets/img/flows/Distribution_Modeling.png
+cover-img: /assets/img/flows/thumbnail.png
+thumbnail-img: /assets/img/flows/thumbnail.png
+share-img: /assets/img/flows/thumbnail.png
 tags: [flow matching, generative modeling, deep learning, optimal transport]
 mathjax: true
 author: Filip Mirković
