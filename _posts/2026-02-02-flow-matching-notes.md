@@ -61,8 +61,8 @@ $$
 $$
 Where \\(f_0 = z\\).
     
-2. We can use the network to sample $x$ by first sampling $z$ and passing it through the network.
-3. We can infer the likelihood of $x$ by calculating the inverse of each layer and getting $z$. According to property **1**. calculating the log-likelihood is straightforward.
+2. We can use the network to sample \\(x\\) by first sampling \\(z\\) and passing it through the network.
+3. We can infer the likelihood of \\(x\\) by calculating the inverse of each layer and getting \\(z\\). According to property **1**. calculating the log-likelihood is straightforward.
 
 As with everything in life there is no such thing as free lunch, it turns out that by enforcing invertiblitly of network layers and the feasibility of calculating the Jaccobian of each layer \\(\frac{\partial f_k^{-1}}{\partial f_{k-1}}|(z_i)\\) severely limits the design choices and capability of the model. Therefore, the field was somewhat abandoned until 2024 when [TarFlow](https://arxiv.org/abs/2412.06329) came out, again showing how they are capable generators. Nevertheless, more recent research focused on a different approach on molding simpler distributions into more complicated ones, and one of the most prominent ones are based on flow matching.
 
@@ -79,7 +79,7 @@ $$
 
 Such that \\(\psi_0(x) = x \; \forall x \sim p_x\\) and \\(\psi_1(x)\sim p_z\\). We call \\(\psi_t\\) a flow or probability path interchangeably. 
 
-Furthermore, at arbitrary t we get 
+Furthermore, at arbitrary \\(t\\) we get 
 
 $$
 X_t = \psi_t(X_0)
