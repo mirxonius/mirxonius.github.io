@@ -54,7 +54,7 @@ Where \\(f_i\\) is the \\(i\\)-th layer of a neural network.
 
 It turns out this gives as plenty of nice properties:
 
-1. The loss function is a simple *log-likelihood*
+1. The loss function is a simple _log-likelihood_
     
 $$
 \mathcal{l}_{\theta,i} =  \log p_{x_i} = \log p_z(z_i) + \sum_k \log |\frac{\partial f_k^{-1}}{\partial f_{k-1}}|(z_i)
@@ -62,6 +62,7 @@ $$
 Where \\(f_0 = z\\).
     
 2. We can use the network to sample \\(x\\) by first sampling \\(z\\) and passing it through the network.
+
 3. We can infer the likelihood of \\(x\\) by calculating the inverse of each layer and getting \\(z\\). According to property **1**. calculating the log-likelihood is straightforward.
 
 As with everything in life there is no such thing as free lunch, it turns out that by enforcing invertiblitly of network layers and the feasibility of calculating the Jaccobian of each layer \\(\frac{\partial f_k^{-1}}{\partial f_{k-1}}|(z_i)\\) severely limits the design choices and capability of the model. Therefore, the field was somewhat abandoned until 2024 when [TarFlow](https://arxiv.org/abs/2412.06329) came out, again showing how they are capable generators. Nevertheless, more recent research focused on a different approach on molding simpler distributions into more complicated ones, and one of the most prominent ones are based on flow matching.
@@ -71,7 +72,7 @@ As with everything in life there is no such thing as free lunch, it turns out th
 The main conceptual leap between older methods such as normalizing flows and flow matching is that while normalizing flow try to train a neural network to directly model the process of distribution molding in one step, flow matching trains the neural network to do that in many steps.
 
 Again, lets assume we have two random variables $Z$ and $X$ each sampled according to their respective distributions \\(Z \sim p_z\\) and \\(X \sim p_x\\), and we want to design a map from \\(p_x\\)  to \\(p_z\\) (here we slightly deviate from the previous notation, now z will represent the data).
-Instead of *moving* \\(p_x\\) to \\(p_z\\) in one step lets try to do this continuously by moving each \\(X\sim p_x\\) along a path
+Instead of _moving_ \\(p_x\\) to \\(p_z\\) in one step lets try to do this continuously by moving each \\(X\sim p_x\\) along a path
 
 $$
 \psi_t: [0,1]\times \mathbb{R}^d \longrightarrow \mathbb{R}^d
@@ -85,25 +86,22 @@ $$
 X_t = \psi_t(X_0)
 $$
 
- which defines a *velocity* filed as
+ which defines a _velocity_ filed as
 
 $$
 \frac{d X_t}{dt} = u_t(X_t)
 $$
 
-This can be expressed by a *flow* function $\psi$ which satisfies
+This can be expressed by a _flow_ function \\(\psi\\) which satisfies
 
-$$
-`
-$$
 
-The result is that at each *time* step \\(t\\), \\(\psi_t\\) defines a new probability density function \\(p_t(x)\\). Furthermore we can relate $u_t$ to $p_t$ using the following continuity equation
+The result is that at each _time_ step \\(t\\), \\(\psi_t\\) defines a new probability density function \\(p_t(x)\\). Furthermore we can relate \\(u_t\\) to \\(p_t\\) using the following continuity equation
 
 $$
  \partial_t p_t(x) + \nabla\cdot \big(p_t(x)u_t(x)\big )=0  
 $$
 
-What we want the neural network to learn is not \\(\psi_t\\) itself, rather we want it to learn the velocity field \\(u^{\theta}_t(x)\\). *That is we minimize*
+What we want the neural network to learn is not \\(\psi_t\\) itself, rather we want it to learn the velocity field \\(u^{\theta}_t(x)\\). _That is we minimize_
 
 $$
 \mathcal{L}_{FM}(\theta) = \mathbb{E}_{x\sim p_t(x)\; t\sim\mathcal{U}}\Big[||u_t(x)  -  u^\theta_t(x)||^2\Big]
@@ -159,10 +157,12 @@ $$
 
 But why would we even care for such a result? It seems obvious that there is no use in doing this if we have only a single data point in our dataset, so why do it?
 
-The utility of this expression stems from the fact that we don't know the distribution of data $p_z$, rather we can only sample some batch \\(\{z_i\}\\) from the dataset, and in that scenario a more formal view reveals several important details to our approach:
+The utility of this expression stems from the fact that we don't know the distribution of data \\(p_z\\), rather we can only sample some batch \\(\{z_i\}\\) from the dataset, and in that scenario a more formal view reveals several important details to our approach:
 
 1. Since we're sampling data we do not have access to the real \\(u_t(x)\\) and \\(p_t(x)\\), instead we have access to \\(u_t(x|z)\\), and \\(p_t(x|z)\\). That is we can only obtain a target for a **conditional flow**, and **conditional probability path**.
+
 2. Once some \\(z_i\\) has been sampled from the dataset the most unbiased estimator of the data distribution is that it is \\(p(z|z_i) = \delta(z-z_i)\\).
+
 3. Step **2.** is especially important since we've done a nice derivation for the case \\(p(z|z_0) = \delta(z-z_0)\\), but more importantly by averaging over the dataset we can obtain the exact distribution \\(p(z) = \int p(z_i) \delta(z-z_i) dz_i\\)
 Recall the continuity equation
 
@@ -273,7 +273,9 @@ To recap the full procedure for training a flow matching model is:
 3. We sample \\(z\sim \mathcal{D}, x_0 \sim \mathcal{N}\\), and \\(t \sim \mathcal{U}\\)
 4. We calculate the \\(x_t\\) via interpolation \\(x_t = tz + (1-t)x_0\\)
 5. We pass both \\(x_t\\) and \\(t\\) to the **model** to get the conditional flow velocity 
+
 6. We calculate the target conditional flow velocity as \\(u_t(x|z) = z - x_0\\)
+
 7. We calculate the loss \\(\mathcal{L}_{CMF}=||u^\theta_t(x) - u_t(x|z)||^2\\) and back-propagate.
 
 Once the model is trained we can sample new data in the following way:
