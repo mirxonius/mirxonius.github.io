@@ -265,12 +265,11 @@ $$
 
 **Q.E.D.**
 
-The result given by *Theorem 1* tells us something remarkable, that we can use the extremely simple conditional flow velocity \\(u_t(x|z) = z-x\\), and still achieve the desired flow between the distribution \\(p_0 = \mathcal{N}\\) and \\(p_1 = p_{data}\\).
+The result given by _Theorem 1_ tells us something remarkable, that we can use the extremely simple conditional flow velocity \\(u_t(x|z) = z-x\\), and still achieve the desired flow between the distribution \\(p_0 = \mathcal{N}\\) and \\(p_1 = p_{data}\\).
 
 To recap the full procedure for training a flow matching model is:
 
 1. We define and initialize our model \\(u_t^\theta\\)
-
 
 2. We prepare our dataset \\(\mathcal{D}\\)
 
@@ -323,10 +322,13 @@ To avoid this, [Mini-Batch Optimal Transport Sampling](https://arxiv.org/abs/230
 ![trajectory.gif](/assets/gif/flows/trajectory.gif)
 
 **Optimal Transport Sample Trajectory**
+
 ![trajectory_ot.gif](/assets/gif/flows/trajectory_ot.gif)
 
 **Regular Probability Density Evolution**
+
 ![density_evolution.gif](/assets/gif/flows/density_evolution.gif)
+
 **Optimal Transport Probability Density Evolution**
 
 ![density_evolution_ot.gif](/assets/gif/flows/density_evolution_ot.gif)
