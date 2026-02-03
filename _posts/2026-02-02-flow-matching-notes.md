@@ -310,21 +310,24 @@ To avoid this, [Mini-Batch Optimal Transport Sampling](https://arxiv.org/abs/230
 
 ## 3.2 Comparison - Two Moons
 
-**Left Regular Flow Velocity Field, Right Optimal Transport Velocity Field**
+**Regular Flow Velocity Field**
 
 ![flow_field.gif](/assets/gif/flows/flow_field.gif)
 
+**Optimal Transport Velocity Field**
+
 ![flow_field_ot.gif](/assets/gif/flows/flow_field_ot.gif)
 
-**Left Regular Sample Trajectory, Right Optimal Transport Sample Trajectory**
+**Regular Sample Trajectory**
 
 ![trajectory.gif](/assets/gif/flows/trajectory.gif)
 
+**Optimal Transport Sample Trajectory**
 ![trajectory_ot.gif](/assets/gif/flows/trajectory_ot.gif)
 
-**Left Regular Probability Density Evolution, Right Optimal Transport Probability Density Evolution**
-
+**Regular Probability Density Evolution**
 ![density_evolution.gif](/assets/gif/flows/density_evolution.gif)
+**Optimal Transport Probability Density Evolution**
 
 ![density_evolution_ot.gif](/assets/gif/flows/density_evolution_ot.gif)
 
