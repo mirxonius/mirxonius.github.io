@@ -2,7 +2,6 @@
 layout: post
 title: Notes on Flow Matching
 subtitle: Intuitions and derivations
-background: "/assets/images/flows/kanagawa.jpg"
 cover-img: /assets/img/flows/thumbnail.png
 thumbnail-img: /assets/img/flows/thumbnail.png
 share-img: /assets/img/flows/thumbnail.png
