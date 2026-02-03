@@ -15,7 +15,7 @@ There are several ways of understanding flow matching or diffusion models, and m
 In my opinion the core question behind generative modeling is _How do we sample from an arbitrary probability distribution?_ 
 In this blog we will attempt to answer this question through _flow matching_.
 
-As usual we offer a complementary repository: github.com/mirxonius/flows
+As usual we offer a complementary repository:  [flows](github.com/mirxonius/flows)
 
 # 1. Introduction and Motivation
 
