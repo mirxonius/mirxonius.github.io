@@ -158,7 +158,7 @@ $$
 
 But why would we even care for such a result? It seems obvious that there is no use in doing this if we have only a single data point in our dataset, so why do it?
 
-The utility of this expression stems from the fact that we don't know the distribution of data \\(p_z\\), rather we can only sample some batch \\( \big(z_i\big) \\) from the dataset, and in that scenario a more formal view reveals several important details to our approach:
+The utility of this expression stems from the fact that we don't know the distribution of data \\(p_z\\), rather we can only sample some batch \\( \big(z_i \big) \\) from the dataset, and in that scenario a more formal view reveals several important details to our approach:
 
 1. Since we're sampling data we do not have access to the real \\(u_t(x)\\) and \\(p_t(x)\\), instead we have access to \\(u_t(x|z)\\), and \\( p_t(x|z)\\). That is we can only obtain a target for a **conditional flow**, and **conditional probability path**.
 
@@ -175,7 +175,7 @@ $$
 
 But wait! We are no longer fitting the model to the real \\(u_t(x)\\), rather to the conditional \\(u_t(x|z)\\), will this be good enough to fit to the model data?
 
-In the next section we will discuss, a remarkable result why it is.
+In the next section we will discuss, a simple yet remarkable result as to why that is.
 
 ## 2.2 Conditional flow velocity
 
