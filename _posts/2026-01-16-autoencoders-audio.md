@@ -126,13 +126,13 @@ Below you can see the *radially averaged power spectral density*, or RAPSD for 
 
 **FIG 1:** From Sander’s blog, on the left is an 2-D Fourier transform of an image, and the frequencies are taken across the red line, on the right the frequency power along the red line is displayed in log-log scale. Even here a power law is evident. 
 
-![**FIG 2:** RASPD for ordinary spectrogram, power law is not present.](assets/img/autoencoders/mean_log_spec.png)
+![**FIG 2:** RAPSD for ordinary spectrogram, power law is not present.](assets/img/autoencoders/mean_log_spec.png)
 
-**FIG 2:** RASPD for ordinary spectrogram, power law is not present.
+**FIG 2:** RAPSD for ordinary spectrogram, power law is not present.
 
-![**FIG 3:** RASPD for mel-spectrogram, the power law again becomes apparent. ](assets/img/autoecnoders/mel_spec_rapsd.png)
+![**FIG 3:** RAPSD for mel-spectrogram, the power law again becomes apparent. ](assets/img/autoencoders/mel_spec_rapsd.png)
 
-**FIG 3:** RASPD for mel-spectrogram, the power law again becomes apparent. 
+**FIG 3:** RAPSD for mel-spectrogram, the power law again becomes apparent. 
 
 Why not work with mel-spectrograms then? The reason is that they perform a great deal of frequency compression in the form of band averaging. This sometimes does not present an issue when one is dealing in classification tasks, or in voice reconstruction, where a high frequency resolution is not essential. However, when dealing with all sorts of audio, including music mel-spectrograms prove less then ideal.
 
