@@ -56,11 +56,10 @@ It turns out this gives as plenty of nice properties:
 
 1. The loss function is a simple *log-likelihood*
     
-    $$
-    \mathcal{l}_{\theta,i} =  \log p_{x_i} = \log p_z(z_i) + \sum_k \log |\frac{\partial f_k^{-1}}{\partial f_{k-1}}|(z_i)
-    $$
-    
-    Where \\(f_0 = z\\).
+$$
+\mathcal{l}_{\theta,i} =  \log p_{x_i} = \log p_z(z_i) + \sum_k \log |\frac{\partial f_k^{-1}}{\partial f_{k-1}}|(z_i)
+$$
+Where \\(f_0 = z\\).
     
 2. We can use the network to sample $x$ by first sampling $z$ and passing it through the network.
 3. We can infer the likelihood of $x$ by calculating the inverse of each layer and getting $z$. According to property **1**. calculating the log-likelihood is straightforward.
