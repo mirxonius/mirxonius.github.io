@@ -124,12 +124,12 @@ Aside from the problem that we do not know what \\(u_t(x)\\) is we also do not k
 
 For the time being lets try to solve a much simpler problem, where we have only one example in our dataset \\(z_0 \in \mathcal{D}\\). If that were the case we know the distribution  \\(p_z= \delta(z-z_0)\\), and we know that we have to map each \\(x\sim p_x\\) to the same \\(z_0\\).
 
-Even in this simplest of cases we are met with a choice; there are infinite probability paths $\psi_t$ and $u_t$ that would map from \\(p_0\\) to \\(p_{data}\\).
+Even in this simplest of cases we are met with a choice; there are infinite probability paths \\(\psi_t\\) and \\(u_t\\) that would map from \\(p_0\\) to \\(p_{data}\\).
 
-As usual we might try to make use of Gaussian distributions in the following way
+As usual we try to make use of Gaussian distributions in the following way
 
 $$
-p_t(x) = \mathcal{N}(\alpha_tz_0,\beta_t^2)
+p_t(x) = \mathcal{N}(\alpha_t z_0,\beta_t^2)
 $$
 
 Where \\(\alpha_t\\) is a monotonically increasing function with \\(\alpha_0=0\\) and \\(\alpha_1 = 1\\), and \\(\beta_t\\) a monotonically decreasing function with \\(\beta_0=1\\) and \\(\beta_1=0\\). This makes sense because at \\(t=0\\) we end up with \\(p_{x_0} = \mathcal{N}(0,1)\\) and with \\(p_{x_1} = \delta(z-z_0)\\). We call this the Gaussian probability path. Furthermore typical choices for are 
@@ -158,9 +158,9 @@ $$
 
 But why would we even care for such a result? It seems obvious that there is no use in doing this if we have only a single data point in our dataset, so why do it?
 
-The utility of this expression stems from the fact that we don't know the distribution of data \\(p_z\\), rather we can only sample some batch \\(\{z_i\}\\) from the dataset, and in that scenario a more formal view reveals several important details to our approach:
+The utility of this expression stems from the fact that we don't know the distribution of data \\(p_z\\), rather we can only sample some batch \\( \big(z_i\big) \\) from the dataset, and in that scenario a more formal view reveals several important details to our approach:
 
-1. Since we're sampling data we do not have access to the real \\(u_t(x)\\) and \\(p_t(x)\\), instead we have access to \\(u_t(x|z)\\), and \\(p_t(x|z)\\). That is we can only obtain a target for a **conditional flow**, and **conditional probability path**.
+1. Since we're sampling data we do not have access to the real \\(u_t(x)\\) and \\(p_t(x)\\), instead we have access to \\(u_t(x|z)\\), and \\( p_t(x|z)\\). That is we can only obtain a target for a **conditional flow**, and **conditional probability path**.
 
 2. Once some \\(z_i\\) has been sampled from the dataset the most unbiased estimator of the data distribution is that it is \\(p(z|z_i) = \delta(z-z_i)\\).
 
