@@ -29,7 +29,7 @@ navbar-links:
 favicon: "/assets/img/flows/kanagawa.jpg"
 
 # Image to show in the navigation bar
-avatar: "/assets/img/avatar-icon.png"
+avatar: "/assets/img/avatar.jpg"
 
 # By default, the image is cut into a circle.
 round-avatar: true
