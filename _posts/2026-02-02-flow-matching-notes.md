@@ -50,7 +50,7 @@ $$
 \phi_{\theta} = f_k \circ f_{k-1}\circ ... \circ f_{2} \circ f_{1}
 $$
 
-Where $f_i$ is the $i$-th layer of a neural network.
+Where \\(f_i\\) is the \\(i\\)-th layer of a neural network.
 
 It turns out this gives as plenty of nice properties:
 
