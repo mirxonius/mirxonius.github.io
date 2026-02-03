@@ -99,10 +99,10 @@ This can be expressed by a _flow_ function \\(\psi\\) which satisfies
 The result is that at each _time_ step \\(t\\), \\(\psi_t\\) defines a new probability density function \\(p_t(x)\\). Furthermore we can relate \\(u_t\\) to \\(p_t\\) using the following continuity equation
 
 $$
- \partial_t p_t(x) + \nabla\cdot \big(p_t(x)u_t(x)\big )=0  
+ \partial_t p_t(x) + \nabla \cdot \big(p_t(x)u_t(x)\big )=0  
 $$
 
-What we want the neural network to learn is not \\(\psi_t\\) itself, rather we want it to learn the velocity field \\( u^\theta _t (x) \\). _That is we minimize_
+What we want the neural network to learn is not \\(\psi_t\\) itself, rather we want it to learn the velocity field \\( u^\theta _t (x) \\). That is we minimize
 
 $$
 \mathcal{L}_{FM}(\theta) = \mathbb{E}_{x\sim p_t(x)\; t\sim\mathcal{U}}\Big[\vert \vert u_t(x)  -  u^\theta_t(x)\vert \vert^2\Big]
