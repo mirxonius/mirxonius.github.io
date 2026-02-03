@@ -102,7 +102,7 @@ $$
  \partial_t p_t(x) + \nabla\cdot \big(p_t(x)u_t(x)\big )=0  
 $$
 
-What we want the neural network to learn is not \\(\psi_t\\) itself, rather we want it to learn the velocity field \\(u^{ \theta }_t(x) \\). _That is we minimize_
+What we want the neural network to learn is not \\(\psi_t\\) itself, rather we want it to learn the velocity field \\( u^\theta _t(x) \\). _That is we minimize_
 
 $$
 \mathcal{L}_{FM}(\theta) = \mathbb{E}_{x\sim p_t(x)\; t\sim\mathcal{U}}\Big[\vert \vert u_t(x)  -  u^\theta_t(x)\vert \vert^2\Big]
