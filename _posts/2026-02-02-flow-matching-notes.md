@@ -49,21 +49,16 @@ As any mathematician worth their salt know that a composition of invertible func
 $$
 \phi_{\theta} = f_k \circ f_{k-1}\circ ... \circ f_{2} \circ f_{1}
 $$
-
 Where \\(f_i\\) is the \\(i\\)-th layer of a neural network.
-
 It turns out this gives as plenty of nice properties:
 
-1. The loss function is a simple _log-likelihood_
-    
+1. The loss function is a simple _log-likelihood_  
 $$
 \mathcal{l}_{\theta,i} =  \log p_{x_i} = \log p_z(z_i) + \sum_k \log |\frac{\partial f_k^{-1}}{\partial f_{k-1}}|(z_i)
 $$
-
 Where \\(f_0 = z\\).
     
 2. We can use the network to sample \\(x\\) by first sampling \\(z\\) and passing it through the network.
-
 3. We can infer the likelihood of \\(x\\) by calculating the inverse of each layer and getting \\(z\\). According to property **1**. calculating the log-likelihood is straightforward.
 
 As with everything in life there is no such thing as free lunch, it turns out that by enforcing invertiblitly of network layers and the feasibility of calculating the Jaccobian of each layer \\(\partial_{f_{k-1}} f_k^{-1} (z_i) \\) severely limits the design choices and capability of the model. Therefore, the field was somewhat abandoned until 2024 when [TarFlow](https://arxiv.org/abs/2412.06329) came out, again showing how they are capable generators. Nevertheless, more recent research focused on a different approach on molding simpler distributions into more complicated ones, and one of the most prominent ones are based on flow matching.
@@ -137,15 +132,11 @@ Where \\(\alpha_t\\) is a monotonically increasing function with \\(\alpha_0=0\\
 $$
 \alpha= t \\ \beta=1-t
 $$
-
 This now fully defines \\(x_t(x)\\) as   
-
 $$
 x_t =\psi_t(x_0)=  \alpha_t z_0 + \beta_t x_0\;\; x_0\sim\mathcal{N}
 $$
-
 After a short derivation we end up with 
-
 $$
 u_t(x_0) = \Big(\dot{\alpha_t} - \frac{\dot{\beta_t}}{\beta_t}\alpha_t \Big)z_0 + \frac{\dot{\beta_t}}{\beta_t}x_0
 $$
@@ -161,10 +152,9 @@ But why would we even care for such a result? It seems obvious that there is no 
 The utility of this expression stems from the fact that we don't know the distribution of data \\(p_z\\), rather we can only sample some batch \\( \big(z_i \big) \\) from the dataset, and in that scenario a more formal view reveals several important details to our approach:
 
 1. Since we're sampling data we do not have access to the real \\(u_t(x)\\) and \\(p_t(x)\\), instead we have access to \\(u_t(x\vert z)\\), and \\( p_t(x\vert z)\\). That is we can only obtain a target for a **conditional flow**, and **conditional probability path**.
-
 2. Once some \\(z_i\\) has been sampled from the dataset the most unbiased estimator of the data distribution is that it is \\(p(z \vert z_i) = \delta(z-z_i)\\).
-
 3. Step **2.** is especially important since we've done a nice derivation for the case \\(p(z\vert z_0) = \delta(z-z_0)\\), but more importantly by averaging over the dataset we can obtain the exact distribution \\(p(z) = \int p(z_i) \delta(z-z_i) dz_i\\)
+
 Recall the continuity equation
 
 Now that we've established the slight difference between the actual flow velocity \\(u_t(x)\\) and the conditional flow velocity \\(u_t(x\vert z)\\) our loss function changes to 
@@ -269,23 +259,16 @@ The result given by _Theorem 1_ tells us something remarkable, that we can use t
 To recap the full procedure for training a flow matching model is:
 
 1. We define and initialize our model \\(u_t^\theta\\)
-
 2. We prepare our dataset \\(\mathcal{D}\\)
-
 3. We sample \\(z\sim \mathcal{D}, x_0 \sim \mathcal{N}\\), and \\(t \sim \mathcal{U}\\)
-
 4. We calculate the \\(x_t\\) via interpolation \\(x_t = tz + (1-t)x_0\\)
-
 5. We pass both \\(x_t\\) and \\(t\\) to the **model** to get the conditional flow velocity 
-
 6. We calculate the target conditional flow velocity as \\(u_t(x\vert z) = z - x_0\\)
-
 7. We calculate the loss \\(\mathcal{L}_{CMF}=\vert\vert u^\theta_t(x) - u_t(x\vert z)\vert\vert^2\\) and back-propagate.
 
 Once the model is trained we can sample new data in the following way:
 
 1. Sample \\(x_0 \sim \mathcal{N}\\), initialize the temporal grid \\(T \subseteq [0,1]\\)
-
 2. Perform numerical integration of \\(u_t^\theta(x)\\) along \\(T\\), with \\(x_0\\) as initial conditions.
 
 ![trajectory.gif](/assets/gif/flows/trajectory.gif)
@@ -340,15 +323,10 @@ To avoid this, [Mini-Batch Optimal Transport Sampling](https://arxiv.org/abs/230
 - [MIT Lectures Page](https://diffusion.csail.mit.edu/)
 - **Literature**
     1. [Introduction to Flow Matching MIT](https://arxiv.org/abs/2506.02070)
-    
     2. [Introduction to Flow Matching Cambridge](https://mlg.eng.cam.ac.uk/blog/2024/01/20/flow-matching.html)
-    
     3. [Mini-Batch Optimal Transport Flow Matching](https://arxiv.org/abs/2302.00482)
-    
     4. [Flow Matching Original](https://arxiv.org/abs/2210.02747)
-    
     5. [Stochastic Interpolants](https://arxiv.org/abs/2303.08797)
-    
     6. [Flow Matching Guide And Code (Meta.ai)](https://arxiv.org/pdf/2412.06264)
 
 tags: [flow matching, generative modeling, deep learning, optimal transport]
