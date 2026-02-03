@@ -252,7 +252,7 @@ $$
 C_2 = \mathbb{E}_{x\sim p_t(x|z)\,z\sim p_z\,t\sim \mathcal{U}}\Big[ u_t(x|z)^2\Big]
 $$
 
-*The following expression follows trivially* 
+_The following expression follows trivially_
 
 $$
 \mathcal{L}_{FM}(\theta) = \mathbb{E}\Big[ u^\theta_t(x)^2 \Big] - 2\mathbb{E}\Big[ u_t(x|z) \cdot u_t^\theta(x) \Big] + \mathbb{E}\Big[ u_t(x|z)^2\Big] -\mathbb{E}\Big[ u_t(x|z)^2\Big] + C_1=\\
