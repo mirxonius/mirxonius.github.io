@@ -337,18 +337,18 @@ To avoid this, [Mini-Batch Optimal Transport Sampling](https://arxiv.org/abs/230
 
 ### Resources
 
-- **MIT Lectures Page:** https://diffusion.csail.mit.edu/
+- [MIT Lectures Page](https://diffusion.csail.mit.edu/)
 - **Literature**
-    1. Introduction to Flow Matching MIT: https://arxiv.org/abs/2506.02070
+    1. [Introduction to Flow Matching MIT](https://arxiv.org/abs/2506.02070)
     
-    2. Introduction to Flow Matching Cambridge: https://mlg.eng.cam.ac.uk/blog/2024/01/20/flow-matching.html
+    2. [Introduction to Flow Matching Cambridge](https://mlg.eng.cam.ac.uk/blog/2024/01/20/flow-matching.html)
     
-    3. Mini-Batch Optimal Transport Flow Matching: https://arxiv.org/abs/2302.00482
+    3. [Mini-Batch Optimal Transport Flow Matching](https://arxiv.org/abs/2302.00482)
     
-    4. Flow Matching Original: https://arxiv.org/abs/2210.02747
+    4. [Flow Matching Original](https://arxiv.org/abs/2210.02747)
     
-    5. Stochastic Interpolants: https://arxiv.org/abs/2303.08797
+    5. [Stochastic Interpolants](https://arxiv.org/abs/2303.08797)
     
-    6. Flow Matching Guide And Code (Meta.ai): https://arxiv.org/pdf/2412.06264
+    6. [Flow Matching Guide And Code (Meta.ai)](https://arxiv.org/pdf/2412.06264)
 
 tags: [flow matching, generative modeling, deep learning, optimal transport]
