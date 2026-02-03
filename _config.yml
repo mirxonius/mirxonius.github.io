@@ -26,10 +26,10 @@ navbar-links:
 ################
 
 # Favicon of the Kanagawa Great Wave
-favicon: "/assets/img/flows/kanagawa.jpg"
+#favicon: "/assets/img/flows/kanagawa.jpg"
 
 # Image to show in the navigation bar
-avatar: "/assets/img/avatar.jpg"
+avatar: "/assets/img/avatar.png"
 
 # By default, the image is cut into a circle.
 round-avatar: true
