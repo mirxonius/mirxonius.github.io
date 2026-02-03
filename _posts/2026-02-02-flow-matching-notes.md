@@ -66,7 +66,7 @@ Where \\(f_0 = z\\).
 
 3. We can infer the likelihood of \\(x\\) by calculating the inverse of each layer and getting \\(z\\). According to property **1**. calculating the log-likelihood is straightforward.
 
-As with everything in life there is no such thing as free lunch, it turns out that by enforcing invertiblitly of network layers and the feasibility of calculating the Jaccobian of each layer \\(\frac{\partial f_k^{-1}}{\partial f_{k-1}}|(z_i)\\) severely limits the design choices and capability of the model. Therefore, the field was somewhat abandoned until 2024 when [TarFlow](https://arxiv.org/abs/2412.06329) came out, again showing how they are capable generators. Nevertheless, more recent research focused on a different approach on molding simpler distributions into more complicated ones, and one of the most prominent ones are based on flow matching.
+As with everything in life there is no such thing as free lunch, it turns out that by enforcing invertiblitly of network layers and the feasibility of calculating the Jaccobian of each layer \\(\partial_{f_{k-1}} f_k^{-1} (z_i) \\) severely limits the design choices and capability of the model. Therefore, the field was somewhat abandoned until 2024 when [TarFlow](https://arxiv.org/abs/2412.06329) came out, again showing how they are capable generators. Nevertheless, more recent research focused on a different approach on molding simpler distributions into more complicated ones, and one of the most prominent ones are based on flow matching.
 
 # 2. Flow Matching
 
