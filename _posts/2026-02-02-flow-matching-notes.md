@@ -162,9 +162,9 @@ The utility of this expression stems from the fact that we don't know the distri
 
 1. Since we're sampling data we do not have access to the real \\(u_t(x)\\) and \\(p_t(x)\\), instead we have access to \\(u_t(x\vert z)\\), and \\( p_t(x\vert z)\\). That is we can only obtain a target for a **conditional flow**, and **conditional probability path**.
 
-2. Once some \\(z_i\\) has been sampled from the dataset the most unbiased estimator of the data distribution is that it is \\(p(z|z_i) = \delta(z-z_i)\\).
+2. Once some \\(z_i\\) has been sampled from the dataset the most unbiased estimator of the data distribution is that it is \\(p(z \vert z_i) = \delta(z-z_i)\\).
 
-3. Step **2.** is especially important since we've done a nice derivation for the case \\(p(z|z_0) = \delta(z-z_0)\\), but more importantly by averaging over the dataset we can obtain the exact distribution \\(p(z) = \int p(z_i) \delta(z-z_i) dz_i\\)
+3. Step **2.** is especially important since we've done a nice derivation for the case \\(p(z\vert z_0) = \delta(z-z_0)\\), but more importantly by averaging over the dataset we can obtain the exact distribution \\(p(z) = \int p(z_i) \delta(z-z_i) dz_i\\)
 Recall the continuity equation
 
 Now that we've established the slight difference between the actual flow velocity \\(u_t(x)\\) and the conditional flow velocity \\(u_t(x\vert z)\\) our loss function changes to 
