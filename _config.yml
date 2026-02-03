@@ -143,17 +143,17 @@ navbar-var-length: false
 
 
 # Main colors
-# page-col: "#1a1a1a"              # Deep dark background
-# text-col: "#e8e8e8"              # Light gray text (primary)
-# link-col: "#4db8ff"              # Bright blue links
-# hover-col: "#00d4aa"             # Teal hover state
-# navbar-col: "#1a1a1a"            # Dark navbar (matches page)
-# navbar-text-col: "#e8e8e8"       # Light gray navbar text
-# navbar-border-col: "#3a3a3a"     # Subtle gray border
-# footer-col: "#242424"            # Slightly lighter dark footer
-# footer-text-col: "#b0b0b0"       # Medium gray footer text
-# footer-link-col: "#4db8ff"       # Blue footer links
-# footer-hover-col: "#00d4aa"      # Teal footer hover
+page-col: "#1a1a1a"              # Deep dark background
+text-col: "#e8e8e8"              # Light gray text (primary)
+link-col: "#4db8ff"              # Bright blue links
+hover-col: "#00d4aa"             # Teal hover state
+navbar-col: "#1a1a1a"            # Dark navbar (matches page)
+navbar-text-col: "#e8e8e8"       # Light gray navbar text
+navbar-border-col: "#3a3a3a"     # Subtle gray border
+footer-col: "#242424"            # Slightly lighter dark footer
+footer-text-col: "#b0b0b0"       # Medium gray footer text
+footer-link-col: "#4db8ff"       # Blue footer links
+footer-hover-col: "#00d4aa"      # Teal footer hover
 
 # Additional theme variables for reference
 #--bg-secondary: "#242424"      # Secondary background
@@ -166,17 +166,17 @@ navbar-var-length: false
 
 
 # Original
-page-col: "#FFFFFF"
-text-col: "#404040"
-link-col: "#008AFF"
-hover-col: "#0085A1"
-navbar-col: "#EAEAEA"
-navbar-text-col: "#404040"
-navbar-border-col: "#DDDDDD"
-footer-col: "#EAEAEA"
-footer-text-col: "#777777"
-footer-link-col: "#404040"
-footer-hover-col: "#0085A1"
+#page-col: "#FFFFFF"
+#text-col: "#404040"
+#link-col: "#008AFF"
+#hover-col: "#0085A1"
+#navbar-col: "#EAEAEA"
+#navbar-text-col: "#404040"
+#navbar-border-col: "#DDDDDD"
+#footer-col: "#EAEAEA"
+#footer-text-col: "#777777"
+#footer-link-col: "#404040"
+#footer-hover-col: "#0085A1"
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
