@@ -105,7 +105,7 @@ $$
 What we want the neural network to learn is not \\(\psi_t\\) itself, rather we want it to learn the velocity field \\(u^{\theta}_t(x)\\). _That is we minimize_
 
 $$
-\mathcal{L}_{FM}(\theta) = \mathbb{E}_{x\sim p_t(x)\; t\sim\mathcal{U}}\Big[||u_t(x)  -  u^\theta_t(x)||^2\Big]
+\mathcal{L}_{FM}(\theta) = \mathbb{E}_{x\sim p_t(x)\; t\sim\mathcal{U}}\Big[\vert \vert u_t(x)  -  u^\theta_t(x)\vert \vert^2\Big]
 $$
 
 Once we have that we would sample an \\(x\sim \mathcal{N}\\) use that as the initial condition to integrate:  
@@ -170,7 +170,7 @@ Recall the continuity equation
 Now that we've established the slight difference between the actual flow velocity \\(u_t(x)\\) and the conditional flow velocity \\(u_t(x\vert z)\\) our loss function changes to 
 
 $$
-\mathcal{L}(\theta)_{CFM} = \mathbb{E}_{z\sim p_{data}\; x\sim p_t(x\vert z)\;t\sim\mathcal{U}}\big[ ||u_t(x\vert z) - u^{\theta}_t(x)||^2 \big]\\= \mathbb{E}_{z\sim p_{data}\; x\sim p_t(x\vert z)\;t\sim\mathcal{U}}\big[||z-x -u_t^\theta(x)||^2\Big]
+\mathcal{L}(\theta)_{CFM} = \mathbb{E}_{z\sim p_{data}\; x\sim p_t(x\vert z)\;t\sim\mathcal{U}}\big[ \vert \vertu_t(x\vert z) - u^{\theta}_t(x)\vert \vert^2 \big]\\= \mathbb{E}_{z\sim p_{data}\; x\sim p_t(x\vert z)\;t\sim\mathcal{U}}\big[\vert \vertz-x -u_t^\theta(x)\vert \vert^2\Big]
 $$
 
 But wait! We are no longer fitting the model to the real \\(u_t(x)\\), rather to the conditional \\(u_t(x\vert z)\\), will this be good enough to fit to the model data?
@@ -214,13 +214,13 @@ The result \\((\ast)\\) finally relates the real flow velocity to the conditiona
 The original loss function
 
 $$
-\mathcal{L}_{FM}(\theta) = \mathbb{E}_{x\sim p_x\; t\sim\mathcal{U}}\Big[||u_t(x)  -  u^\theta_t(x)||^2\Big]
+\mathcal{L}_{FM}(\theta) = \mathbb{E}_{x\sim p_x\; t\sim\mathcal{U}}\Big[\vert \vertu_t(x)  -  u^\theta_t(x)\vert \vert^2\Big]
 $$
 
 and the conditional loss function
 
 $$
-\mathcal{L}(\theta)_{CFM} = \mathbb{E}_{z\sim p_{data}\; x\sim p_t(x\vert z)\;t\sim\mathcal{U}}\big[ ||u_t(x\vert z) - u^{\theta}_t(x)||^2 \big] 
+\mathcal{L}(\theta)_{CFM} = \mathbb{E}_{z\sim p_{data}\; x\sim p_t(x\vert z)\;t\sim\mathcal{U}}\big[ \vert \vertu_t(x\vert z) - u^{\theta}_t(x)\vert \vert^2 \big] 
 $$
 
 have the same gradients, and therefore the same local minima w.r.t. the  model parameters \\(\theta\\).
@@ -229,7 +229,7 @@ have the same gradients, and therefore the same local minima w.r.t. the  model p
 The Flow Matching loss decomposes into three terms, where only two of them depend on  \\(\theta\\), and the remaining is a constant w.r.t. \\(\theta\\)
 
 $$
-\mathcal{L}_{FM}(\theta) = \mathbb{E}_{x\sim p_t(x\vert z) \, z\sim p_z \,t\sim\mathcal{U}}\Big[||u_t(x)  -  u^\theta_t(x)||^2\Big] \\ =\mathbb{E}\Big[u^\theta_t(x)^2 - 2 u_t(x) \cdot u_t^\theta(x) + u_t(x)^2 \Big]  \\
+\mathcal{L}_{FM}(\theta) = \mathbb{E}_{x\sim p_t(x\vert z) \, z\sim p_z \,t\sim\mathcal{U}}\Big[\vert \vertu_t(x)  -  u^\theta_t(x)\vert \vert^2\Big] \\ =\mathbb{E}\Big[u^\theta_t(x)^2 - 2 u_t(x) \cdot u_t^\theta(x) + u_t(x)^2 \Big]  \\
 = \mathbb{E}\Big[ u^\theta_t(x)^2 \Big] - 2\mathbb{E}\Big[ u_t(x) \cdot u_t^\theta(x) \Big] + C_1 \qquad (3)
 $$
 
@@ -280,7 +280,7 @@ To recap the full procedure for training a flow matching model is:
 
 6. We calculate the target conditional flow velocity as \\(u_t(x\vert z) = z - x_0\\)
 
-7. We calculate the loss \\(\mathcal{L}_{CMF}=||u^\theta_t(x) - u_t(x\vert z)||^2\\) and back-propagate.
+7. We calculate the loss \\(\mathcal{L}_{CMF}=\vert\vertu^\theta_t(x) - u_t(x\vert z)\vert\vert^2\\) and back-propagate.
 
 Once the model is trained we can sample new data in the following way:
 
