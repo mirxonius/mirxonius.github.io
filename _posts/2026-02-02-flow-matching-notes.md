@@ -17,6 +17,8 @@ In this blog I will discuss how _flow matching_ solves this problem.
 
 If you're curious for a full implementation or several examples you can visit my repo [here](github.com/mirxonius/flows).
 
+_Note_: This post does not touch on how to condition or guide the model with a certain input, this is a topic I leave for future posts.
+
 # 1. Introduction and Motivation
 
 We know how to sample from uniform and normal distributions fairly easily and by making use of the [probability integral transform theorem](https://en.wikipedia.org/wiki/Probability_integral_transform) we can sample from *any* one-dimensional probability function. In higher dimensions, where most of the interesting data lays calculating inverse probability integral transforms becomes intractable.
