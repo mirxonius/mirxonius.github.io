@@ -32,7 +32,7 @@ Machine Learning Engineer experienced in research, development and deployment of
 ## Professional Experience
 
 ### Machine Learning Engineer
-**Atomic Intelligence** | Zagreb, Croatia | September 2023 – Present
+**Atomic Intelligence** | Zagreb, Croatia | September 2023 - Present
 
 - Designed and trained deep learning models for state-of-the-art Audio Source Separation, achieving 40% model size reduction while maintaining SOTA performance metrics compared to previous instances.
 - Designed and implemented end-to-end ML training infrastructure using PyTorch Lightning, MLflow, and Hydra, reducing experiment iteration time by 50%.
@@ -40,12 +40,12 @@ Machine Learning Engineer experienced in research, development and deployment of
 - Built synthetic data generation pipeline for medical peptidomics research, enabling client to augment limited patient datasets while maintaining statistical fidelity and privacy compliance.
 
 ### Student Teaching Assistant
-**University of Zagreb, Faculty of Electrical Engineering and Computing** | February 2023 – June 2023
+**University of Zagreb, Faculty of Electrical Engineering and Computing** | February 2023 - June 2023
 
 - Mentored 100+ undergraduate students in deep learning fundamentals, providing detailed feedback on lab assignments and projects.
 
 ### Summer Student Intern
-**CERN** | Geneva, Switzerland | June 2022 – September 2022
+**CERN** | Geneva, Switzerland | June 2022 - September 2022
 
 - Conducted comprehensive analysis of background effects in the BCM1F luminosity detector of the CMS experiment, identifying 3 primary background contributors.
 - Performed statistical analysis of afterglow effects across the CMS detector array, processing terabytes of collision data.
@@ -54,14 +54,19 @@ Machine Learning Engineer experienced in research, development and deployment of
 ## Education
 
 ### Master of Science in Physics
-**University of Zagreb, Faculty of Science** | October 2018 – February 2024 | GPA: 4.6/5.0
+**University of Zagreb, Faculty of Science** | October 2018 - February 2024 | GPA: 4.6/5.0
 
-*Thesis:* Applications of Deep Learning Methods in Complex Systems – Developed graph neural network frameworks for modeling complex systems with symmetry-aware architectures.
+*Thesis:* Applications of Deep Learning Methods in Complex Systems - Developed graph neural network frameworks for modeling complex systems with symmetry-aware architectures.
 
 *Relevant Coursework:* Statistical Mechanics, Quantum Physics, Differential Geometry, Numerical Methods, General Relativity
 
+### Bachelor's Program in Mechanical Engineering
+**University of Zagreb, Faculty of Mechanical Engineering and Naval Architecture** | October 2016 - Jul 2018 | Incomplete
+
+
+
 ### Additional Coursework in Machine Learning
-**University of Zagreb, Faculty of Electrical Engineering and Computing** | 2022 – 2023
+**University of Zagreb, Faculty of Electrical Engineering and Computing** | 2022 - 2023
 
 *Completed:* Machine Learning 1, Deep Learning 1, Deep Learning 2
 
@@ -78,7 +83,7 @@ Implemented flow matching algorithm from scratch in PyTorch for continuous norma
 ### [End-to-End ML Pipeline Template](https://github.com/mirxonius/kidney-segmentation)
 Built production-ready medical image segmentation pipeline featuring MLflow experiment tracking, Streamlit inference app, and containerized deployment with Docker.
 
-### [Lumen Data Science Competition – 2nd Place](https://github.com/mirxonius/lumen-audio)
+### [Lumen Data Science Competition - 2nd Place](https://github.com/mirxonius/lumen-audio)
 Developed a high-accuracy audio classification pipeline that placed 2nd at a competition hosting 50+ teams.
 
 
