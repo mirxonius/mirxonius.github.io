@@ -1,8 +1,7 @@
----
+
 layout: page
 title: Curriculum Vitae
-permalink: /cv/
----
+
 
 
 # Curriculum Vitae
@@ -10,15 +9,13 @@ permalink: /cv/
 ## Filip Mirković
 **Machine Learning Engineer**
 
-Zagreb, Croatia | [filip.mirkovic2211@gmail.com](mailto:filip.mirkovic2211@gmail.com) | [GitHub](https://github.com/mirxonius) | [Blog](/blog)
+Zagreb, Croatia | [filip.mirkovic2211@gmail.com](mailto:filip.mirkovic2211@gmail.com) | [GitHub](https://github.com/mirxonius)
 
----
 
 ## Summary
 
 Machine Learning Engineer experienced in research, development and deployment of production-grade deep learning systems. Specialized in audio signal processing, generative diffusion models, MLOps infrastructure, and high performance computing. Proven track record of successfully building solutions with high degrees of efficiency in resource scarce environments. Strong foundation in physics (MSc) and mathematics with hands-on experience in PyTorch, CUDA optimization, and end-to-end ML pipelines. Selected for a competitive machine learning program hosted by Google DeepMind (ML2School 2025), and held poster presentations.
 
----
 
 ## Technical Skills
 
@@ -31,8 +28,6 @@ Machine Learning Engineer experienced in research, development and deployment of
 **MLOps & Infrastructure:** Docker, MLflow, Git, CI/CD, Triton Inference Server, Linux, Hydra
 
 **Domain Expertise:** Audio Signal Processing, Time Series Analysis, Computer Vision, Computational Physics, Statistical Modeling
-
----
 
 ## Professional Experience
 
@@ -55,7 +50,6 @@ Machine Learning Engineer experienced in research, development and deployment of
 - Conducted comprehensive analysis of background effects in the BCM1F luminosity detector of the CMS experiment, identifying 3 primary background contributors.
 - Performed statistical analysis of afterglow effects across the CMS detector array, processing terabytes of collision data.
 
----
 
 ## Education
 
@@ -71,7 +65,7 @@ Machine Learning Engineer experienced in research, development and deployment of
 
 *Completed:* Machine Learning 1, Deep Learning 1, Deep Learning 2
 
----
+
 
 ## Projects
 
@@ -87,7 +81,7 @@ Built production-ready medical image segmentation pipeline featuring MLflow expe
 ### [Lumen Data Science Competition – 2nd Place](https://github.com/mirxonius/lumen-audio)
 Developed a high-accuracy audio classification pipeline that placed 2nd at a competition hosting 50+ teams.
 
----
+
 
 ## Languages
 
