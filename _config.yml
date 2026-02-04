@@ -19,7 +19,7 @@ author: Filip Mirković
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
+  #About Me: "aboutme"
   Curriculum Vitae: "curriculum_vitae"
 
 ################
