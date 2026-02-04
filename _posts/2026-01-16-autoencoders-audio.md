@@ -14,8 +14,7 @@ For some time now I wanted to find a way where my personal projects will be well
 
 The first section is devoted to auto-encoder objectives in general: reconstruction loss, KL loss, adversarial and perceptual loss, if you are well acquainted with these fell free to jump directly into section two that focuses on currently the most popular design choices and optimization tricks for modern audio auto-encoders.
 
-If you want to see a nice implementation of the set-up described below feel free to checkout my repo:
-[audio_vae](https://github.com/mirxonius/audio_vae)
+If you want to see a nice implementation of the set-up described below feel free to checkout my repo [here](https://github.com/mirxonius/audio_vae).
 
 # 1. Auto-encoders in General
 
