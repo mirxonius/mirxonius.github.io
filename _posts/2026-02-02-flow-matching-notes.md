@@ -132,7 +132,9 @@ Where \\(\alpha_t\\) is a monotonically increasing function with \\(\alpha_0=0\\
 $$
 \alpha= t \\ \beta=1-t
 $$
+
 This now fully defines \\(x_t(x)\\) as   
+
 $$
 x_t =\psi_t(x_0)=  \alpha_t z_0 + \beta_t x_0\;\; x_0\sim\mathcal{N}
 $$
