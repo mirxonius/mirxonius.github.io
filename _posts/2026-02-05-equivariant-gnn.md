@@ -9,3 +9,4 @@ tags: [complex systems, graph neural networks, equivaraince]
 mathjax: true
 author: Filip Mirković
 ---
+
