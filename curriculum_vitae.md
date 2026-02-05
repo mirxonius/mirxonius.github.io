@@ -7,7 +7,7 @@ title: Curriculum Vitae
 # Curriculum Vitae
 
 ## Filip Mirković
-**Machine Learning Engineer**
+**Machine Learning Engineer & Physicist** 
 
 Zagreb, Croatia | [filip.mirkovic2211@gmail.com](mailto:filip.mirkovic2211@gmail.com) | [GitHub](https://github.com/mirxonius)
 
