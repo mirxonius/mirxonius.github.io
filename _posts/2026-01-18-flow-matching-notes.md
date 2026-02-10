@@ -140,6 +140,7 @@ This now fully defines \\(x_t(x)\\) as
 $$
 x_t =\psi_t(x_0)=  \alpha_t z_0 + \beta_t x_0\;\; x_0\sim\mathcal{N}
 $$
+
 After a short derivation we end up with 
 $$
 u_t(x_0) = \Big(\dot{\alpha_t} - \frac{\dot{\beta_t}}{\beta_t}\alpha_t \Big)z_0 + \frac{\dot{\beta_t}}{\beta_t}x_0
