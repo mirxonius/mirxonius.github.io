@@ -69,8 +69,8 @@ As with everything in life there is no such thing as free lunch, it turns out th
 
 The main conceptual leap between older methods such as normalizing flows and flow matching is that while normalizing flow try to train a neural network to directly model the process of distribution molding in one step, flow matching trains the neural network to do that in many steps.
 
-Again, lets assume we have two random variables $Z$ and $X$ each sampled according to their respective distributions \\(Z \sim p_z\\) and \\(X \sim p_x\\), and we want to design a map from \\(p_x\\)  to \\(p_z\\) (here we slightly deviate from the previous notation, now z will represent the data).
-Instead of _moving_ \\(p_x\\) to \\(p_z\\) in one step lets try to do this continuously by moving each \\(X\sim p_x\\) along a path
+Again, let's assume we have two random variables $Z$ and $X$ each sampled according to their respective distributions \\(Z \sim p_z\\) and \\(X \sim p_x\\), and we want to design a map from \\(p_x\\)  to \\(p_z\\) (here we slightly deviate from the previous notation, now z will represent the data).
+Instead of _moving_ \\(p_x\\) to \\(p_z\\) in one step let's try to do this continuously by moving each \\(X\sim p_x\\) along a path
 
 $$
 \psi_t: [0,1]\times \mathbb{R}^d \longrightarrow \mathbb{R}^d
@@ -119,7 +119,7 @@ While this seems all to simple, it is not clear how would we get this \\(u_t\\),
 
 Aside from the problem that we do not know what \\(u_t(x)\\) is we also do not know what \\(p_z = p_{data}\\) is, rather we only have access to a data set \\(\mathcal{D}\\) with a hopefully large enough sample drawn from the true distribution \\(p_z\\).
 
-For the time being lets try to solve a much simpler problem, where we have only one example in our dataset \\(z_0 \in \mathcal{D}\\). If that were the case we know the distribution  \\(p_z= \delta(z-z_0)\\), and we know that we have to map each \\(x\sim p_x\\) to the same \\(z_0\\).
+For the time being let's try to solve a much simpler problem, where we have only one example in our dataset \\(z_0 \in \mathcal{D}\\). If that were the case we know the distribution  \\(p_z= \delta(z-z_0)\\), and we know that we have to map each \\(x\sim p_x\\) to the same \\(z_0\\).
 
 Even in this simplest of cases we are met with a choice; there are infinite probability paths \\(\psi_t\\) and \\(u_t\\) that would map from \\(p_0\\) to \\(p_{data}\\).
 
@@ -191,7 +191,7 @@ $$
 This is where the conditional flow velocity \\( u_t(x\vert z) \\) naturally occurs.
 As you might know, we can always marginalize a distribution according to w.r.t. random variable \\( p(x) = \int p(x \vert z)p(z)dz \\)
 
-So lets perform the marginalization of equation (1) 
+So let's perform the marginalization of equation (1) 
 
 $$
 \partial_t p_t(x)=\partial_t \int p_t(x\vert z)p(z)dz =  \int \partial_t p_t(x\vert z)p(z)dz = - \int \nabla\cdot \big(p_t(x\vert z)u_t(x\vert z)\big  )p(z)dz 
@@ -228,7 +228,7 @@ $$
 = \mathbb{E}\Big[ u^\theta_t(x)^2 \Big] - 2\mathbb{E}\Big[ u_t(x) \cdot u_t^\theta(x) \Big] + C_1 \qquad (3)
 $$
 
-Lets have a closer look at the second term
+as have a closer look at the second term
 
 $$
 \mathbb{E}{}\Big[ u_t(x) \cdot u_t^\theta(x) \Big] = \int dt \int dx \, p_t(x) u^\theta_t(x) \cdot u_t(x) =^{(\ast)} \int dt \int dx \int p_t(x) u_t^{\theta}(x) \cdot \int u_t(x\vert z) \frac{p_t(x\vert z)p(z)}{p_t(x)} dz
