@@ -20,8 +20,8 @@ layout: null
 
   /* common CSS variables */
   --body-font: 'Lora', 'Times New Roman', serif;
-  --header-font: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --mid-col: #8A7F72;
+  --header-font: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --mid-col: #808080;
 }
 
 /* --- General --- */
@@ -958,7 +958,7 @@ pre {
 
 .box-note {
   background-color: #eee;
-  border-left-color: var(--link-col);
+  border-left-color: #2980b9;
 }
 
 .box-warning {
@@ -1052,7 +1052,7 @@ pre {
 }
 #nav-search-input {
   text-align: center;
-  background: #ede4d6;
+  background: #e7edee;
   margin: auto;
   display: block;
   font-size: 2rem;
@@ -1082,8 +1082,8 @@ pre {
   }
 }
 #nav-search-input:focus {
-  background: #f7f1e6;
-  box-shadow: 0px 0.15rem 1rem rgba(156, 62, 40, 0.25);
+  background: #f3f8fe;
+  box-shadow: 0px 0.15rem 1rem #e7f4ff;
   outline: none;
 }
 
@@ -1123,23 +1123,4 @@ pre {
   #nav-search-text {
     display: inline-block;
   }
-}
-
-/* --- Override Bootstrap's default blue on buttons & pagination --- */
-
-.btn-primary {
-  background-color: var(--link-col);
-  border-color: var(--link-col);
-}
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary:not(:disabled):not(.disabled):active {
-  background-color: var(--hover-col);
-  border-color: var(--hover-col);
-}
-.btn-primary:focus,
-.btn-primary.focus,
-.btn-primary:not(:disabled):not(.disabled):active:focus {
-  box-shadow: 0 0 0 0.2rem rgba(156, 62, 40, 0.4);
 }

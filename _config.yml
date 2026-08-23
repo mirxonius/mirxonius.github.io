@@ -71,22 +71,21 @@ navbar-var-length: false
 # --- Colours / background image --- #
 ######################################
 
-page-col: "#FBF8F3"
-text-col: "#2A2521"
-link-col: "#9C3E28"
-hover-col: "#722C1B"
-navbar-col: "#211D1A"
-navbar-text-col: "#F3ECE1"
-navbar-border-col: "#2C2822"
-footer-col: "#EFE7D8"
-footer-text-col: "#6B5D50"
-footer-link-col: "#2A2521"
-footer-hover-col: "#9C3E28"
+page-col: "#FFFFFF"
+text-col: "#404040"
+link-col: "#008AFF"
+hover-col: "#0085A1"
+navbar-col: "#2B99FB"
+navbar-text-col: "#404040"
+navbar-border-col: "#DDDDDD"
+footer-col: "#EAEAEA"
+footer-text-col: "#777777"
+footer-link-col: "#404040"
+footer-hover-col: "#0085A1"
 
-navbar-img: null
-footer-img: null
+navbar-img: "/assets/img/bgimage.png"
+footer-img: "/assets/img/bgimage.png"
 page-img: null
-mobile-theme-col: "#211D1A"
 
 #################################
 # --- Web Analytics Section --- #
